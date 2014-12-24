@@ -20,6 +20,45 @@ void appendItem(Node<T>*&head, Node<T>*&tail, Node<T>*cur) {
 	else { tail->next = cur; tail = cur; }
 }
 
+template<class T>
+void removeItem(Node<T>*& head, T item) {
+	Node<T>* cur = head;
+	if (head->data == item) {
+		head = head->next;
+		delete cur;
+	}
+	Node<T>* prev;
+	while ((prev = cur, cur = cur->next)) {
+		if (cur->data == item) {
+			prev->next = cur->next;
+			delete cur;
+			cur = prev;
+			return; // deletes only one instance of item
+		}
+	}
+	return;
+}
+
+template<class T>
+void removeNode(Node<T>*& head, Node<T>*& n) {
+	Node<T>* cur = head;
+	if (head == n) {
+		head = head->next;
+		delete cur;
+		return;
+	}
+	Node<T>* prev;
+	while ((prev = cur, cur = cur->next)) {
+		if (cur == n) {
+			prev->next = cur->next;
+			delete cur;
+			cur = prev;
+			return; // deletes only one instance of item
+		}
+	}
+	return;
+}
+
 // 2.1 Write code to remove duplicates from an unsorted linked list.
 // FOLLOW UP
 // How would you solve this problem if a temporary buffer is not allowed?
@@ -78,41 +117,12 @@ T findKthElement(Node<T>* head, int k) {
 // Result: nothing is returned, but the new linked list looks like a- >b- >d->e
 
 template<class T>
-void removeNode(Node<T>*& head, Node<T>*& n) {
-	Node<T>* cur = head;
-	if (head == n) {
-		head = head->next;
-		delete cur;
-		return;
-	}
-	Node<T>* prev;
-	while ((prev = cur, cur = cur->next)) {
-		if (cur == n) {
-			prev->next = cur->next;
-			delete cur;
-			cur = prev;
-			return; // deletes only one instance of item
-		}
-	}
-	return;
-}
-
-template<class T>
-void removeItem(Node<T>*& head, T item) {
-	Node<T>* cur = head;
-	if (head->data == item) {
-		head = head->next;
-		delete cur;
-	}
-	Node<T>* prev;
-	while ((prev = cur, cur = cur->next)) {
-		if (cur->data == item) {
-			prev->next = cur->next;
-			delete cur;
-			cur = prev;
-			return; // deletes only one instance of item
-		}
-	}
+void deleteNode(Node<T>*& n) {
+	Node<T>* nodeToDelete = n->next;
+	if (n == NULL || nodeToDelete == NULL) return;
+	n->data = nodeToDelete->data;
+	n->next = nodeToDelete->next;
+	delete nodeToDelete;
 	return;
 }
 
@@ -217,71 +227,96 @@ int main() {
 	cout << findKthElement(head3, 4) << endl;
 	cout << endl;
 
-	cout << "removeNode" << endl;
+	cout << "deleteNode (without access to head)" << endl;
 	Node<int>* head4 = createLinkedList();
 	printAll(head4);
-	Node<int>* first = head4;
-	Node<int>* second = head4->next;
-	Node<int>* third = head4->next->next;
-	Node<int>* fourth = head4->next->next->next;
-	cout << "remove fourth: " << fourth->data << endl;
-	removeNode(head4, fourth);
+	Node<int>* first4 = head4;
+	Node<int>* second4 = head4->next;
+	Node<int>* third4 = head4->next->next;
+	Node<int>* fourth4 = head4->next->next->next;
+	cout << "delete fourth: " << fourth4->data << endl;
+	deleteNode(fourth4);
 	printAll(head4);
-	cout << "remove second: " << second->data << endl;
-	removeNode(head4, second);
+	cout << "fourth is now: " << fourth4->data << endl;
+	cout << "delete second: " << second4->data << endl;
+	deleteNode(second4);
 	printAll(head4);
-	cout << "remove first: " << first->data << endl;
-	removeNode(head4, first);
+	cout << "second is now: " << second4->data << endl;
+	cout << "delete first: " << first4->data << endl;
+	deleteNode(first4);
 	printAll(head4);
-	cout << "remove third: " << third->data << endl;
-	removeNode(head4, third);
+	cout << "first4 is now: " << first4->data << endl;
+	cout << "delete third: " << third4->data << endl;
+	deleteNode(third4);
 	printAll(head4);
+	cout << "third4 is now: " << third4->data << endl;
+	cout << endl;
+
+	cout << "removeNode" << endl;
+	Node<int>* head5 = createLinkedList();
+	printAll(head5);
+	Node<int>* first5 = head5;
+	Node<int>* second5 = head5->next;
+	Node<int>* third5 = head5->next->next;
+	Node<int>* fourth5 = head5->next->next->next;
+	cout << "remove fourth: " << fourth5->data << endl;
+	removeNode(head5, fourth5);
+	printAll(head5);
+	cout << "remove second: " << second5->data << endl;
+	removeNode(head5, second5);
+	printAll(head5);
+	cout << "remove first: " << first5->data << endl;
+	removeNode(head5, first5);
+	printAll(head5);
+	cout << "remove third: " << third5->data << endl;
+	removeNode(head5, third5);
+	printAll(head5);
 	cout << endl;
 
 	cout << "removeItem" << endl;
-	Node<int>* head5 = createLinkedList();
-	printAll(head5);
+	Node<int>* head6 = createLinkedList();
+	printAll(head6);
 	cout << "remove 2" << endl;
-	removeItem(head5, 2);
-	printAll(head5);
+	removeItem(head6, 2);
+	printAll(head6);
 	cout << "remove 5" << endl;
-	removeItem(head5, 5);
-	printAll(head5);
+	removeItem(head6, 5);
+	printAll(head6);
 	cout << "remove 5" << endl;
-	removeItem(head5, 5);
-	printAll(head5);
+	removeItem(head6, 5);
+	printAll(head6);
 	cout << "remove 4" << endl;
-	removeItem(head5, 4);
-	printAll(head5);
+	removeItem(head6, 4);
+	printAll(head6);
 	cout << "remove 1" << endl;
-	removeItem(head5, 1);
-	printAll(head5);
+	removeItem(head6, 1);
+	printAll(head6);
 	cout << endl;
 
 	cout << "pivotList" << endl;
-	Node<int>* head6_6 = new Node<int>(6);
-	Node<int>* head6_5 = new Node<int>(1, head6_6);
-	Node<int>* head6_4 = new Node<int>(4, head6_5);
-	Node<int>* head6_3 = new Node<int>(7, head6_4);
-	Node<int>* head6_2 = new Node<int>(3, head6_3);
-	Node<int>* head6_1 = new Node<int>(5, head6_2);
-	Node<int>* head6 = new Node<int>(2, head6_1);
-	printAll(head6);
-	pivotList(head6, 3);
-	printAll(head6);
+	Node<int>* head7_6 = new Node<int>(6);
+	Node<int>* head7_5 = new Node<int>(1, head7_6);
+	Node<int>* head7_4 = new Node<int>(4, head7_5);
+	Node<int>* head7_3 = new Node<int>(7, head7_4);
+	Node<int>* head7_2 = new Node<int>(3, head7_3);
+	Node<int>* head7_1 = new Node<int>(5, head7_2);
+	Node<int>* head7 = new Node<int>(2, head7_1);
+	printAll(head7);
+	pivotList(head7, 3);
+	printAll(head7);
 	cout << endl;
 
 	cout << "addLists" << endl;
-	Node<int>* head7_2 = new Node<int>(6);
-	Node<int>* head7_1 = new Node<int>(1, head7_2);
-	Node<int>* head7 = new Node<int>(7, head7_1);
-	printAll(head7);
-	Node<int>* head8_2 = new Node<int>(2);
-	Node<int>* head8_1 = new Node<int>(9, head8_2);
-	Node<int>* head8 = new Node<int>(5, head8_1);
+	Node<int>* head8_2 = new Node<int>(6);
+	Node<int>* head8_1 = new Node<int>(1, head8_2);
+	Node<int>* head8 = new Node<int>(7, head8_1);
 	printAll(head8);
-	Node<int>* head9 = addLists(head7, head8);
+	Node<int>* head9_2 = new Node<int>(2);
+	Node<int>* head9_1 = new Node<int>(9, head9_2);
+	Node<int>* head9 = new Node<int>(5, head9_1);
 	printAll(head9);
+	Node<int>* head10 = addLists(head8, head9);
+	printAll(head10);
 	cout << endl;
 }
 
