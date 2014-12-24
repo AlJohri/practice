@@ -14,6 +14,10 @@ class Node {
 		~Node() {};
 };
 
+// 2.1 Write code to remove duplicates from an unsorted linked list.
+// FOLLOW UP
+// How would you solve this problem if a temporary buffer is not allowed?
+
 template<class T>
 void removeDuplicates(Node<T>* head) {
 	unordered_map<T, bool> map;
@@ -33,6 +37,7 @@ void removeDuplicates(Node<T>* head) {
 	return;
 }
 
+// no buffer
 template<class T>
 void removeDuplicates2(Node<T>* head) {
 	Node<T>* dupCheck = head;
@@ -49,13 +54,7 @@ void removeDuplicates2(Node<T>* head) {
 	} while((dupCheck = dupCheck->next));
 }
 
-template<class T>
-void printAll(Node<T>* head) {
-	for (Node<T>* cur = head; cur != NULL; cur = cur->next) {
-		cout << cur->data << ' ';
-	}
-	cout << endl;
-}
+// 2.2 Implement an algorithm to find the kth to last element of a singly linked list.
 
 template<class T>
 T findKthElement(Node<T>* head, int k) {
@@ -66,16 +65,11 @@ T findKthElement(Node<T>* head, int k) {
 	return prev->data;
 }
 
-Node<int>* createLinkedList() {
-	Node<int>* g = new Node<int>(7);
-	Node<int>* f = new Node<int>(5, g);
-	Node<int>* e = new Node<int>(5, f);
-	Node<int>* d = new Node<int>(4, e);
-	Node<int>* c = new Node<int>(3, d);
-	Node<int>* b = new Node<int>(2, c);
-	Node<int>* a = new Node<int>(1, b);
-	return a;
-}
+// 2.3 Implement an algorithm to delete a node in the middle of a singly linked list,
+// given only access to that node.
+// EXAMPLE
+// Input: the node c from the linked list a->b->c->d->e
+// Result: nothing is returned, but the new linked list looks like a- >b- >d->e
 
 template<class T>
 void removeNode(Node<T>*& head, T item) {
@@ -95,6 +89,9 @@ void removeNode(Node<T>*& head, T item) {
 	}
 	return;
 }
+
+// 2.4 Write code to partition a linked list around a value x, such that all nodes less 
+// than x come before all nodes greater than or equal to x.
 
 template<class T>
 void appendItem(Node<T>*&head, Node<T>*&tail, Node<T>*cur) {
@@ -120,6 +117,25 @@ void pivotList(Node<T>*&head, T pivot) {
 	head = headLeft;
 
 	return;
+}
+
+template<class T>
+void printAll(Node<T>* head) {
+	for (Node<T>* cur = head; cur != NULL; cur = cur->next) {
+		cout << cur->data << ' ';
+	}
+	cout << endl;
+}
+
+Node<int>* createLinkedList() {
+	Node<int>* g = new Node<int>(7);
+	Node<int>* f = new Node<int>(5, g);
+	Node<int>* e = new Node<int>(5, f);
+	Node<int>* d = new Node<int>(4, e);
+	Node<int>* c = new Node<int>(3, d);
+	Node<int>* b = new Node<int>(2, c);
+	Node<int>* a = new Node<int>(1, b);
+	return a;
 }
 
 int main() {
