@@ -140,6 +140,10 @@ Node<int>* addLists(Node<int>* l1, Node<int>* l2) {
 		else if (!l1 && l2) {
 			appendItem(l3Head, l3Tail, new Node<int>(l2->data));
 		}
+		else if (!l1 && !l2 && curRemainder > 0) {
+			appendItem(l3Head, l3Tail, new Node<int>(curRemainder));
+			curRemainder = 0;
+		}
 		else {
 			return l3Head;
 		}
