@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+if [ -z "$1" ]; then
+    printf "no filename provided\nexample usage: \n\t./run chapter1.cpp\n"
+    exit 1
+fi
+
+rm -f a.out
+g++ $1 && ./a.out
+rm -f a.out
