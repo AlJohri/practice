@@ -77,6 +77,23 @@ Node<int>* createLinkedList() {
 	return a;
 }
 
+template<class T>
+void removeNode(Node<T>* head, T item) {
+	Node<T>* cur = head;
+	if (head->data == item) {
+		head = head->next;
+		free(cur);
+	}
+	Node<T>* prev;
+	while ((prev = cur, cur = cur->next)) {
+		if (cur->data == item) {
+			prev->next = cur->next;
+			free(cur);
+			cur = prev->next;
+		}
+	}
+}
+
 int main() {
 	Node<int>* head1 = createLinkedList();
 	printAll(head1);
@@ -95,5 +112,14 @@ int main() {
 	cout << findKthElement(head3, 0) << endl;
 	cout << findKthElement(head3, 2) << endl;
 	cout << findKthElement(head3, 4) << endl;
+	cout << endl;
+
+	Node<int>* head4 = createLinkedList();
+	printAll(head4);
+	removeNode(head4, 2);
+	removeNode(head4, 5);
+	removeNode(head4, 5);
+	removeNode(head4, 4);
+	printAll(head4);
 }
 
