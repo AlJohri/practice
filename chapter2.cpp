@@ -57,6 +57,15 @@ void printAll(Node<T>* head) {
 	cout << endl;
 }
 
+template<class T>
+T findKthElement(Node<T>* head, int k) {
+	Node<T>* cur = head;
+	Node<T>* prev = head;
+	for (int i = 0; i < k; i++) cur = cur->next;
+	while (cur->next) { prev = prev->next; cur = cur->next; }
+	return prev->data;
+}
+
 Node<int>* createLinkedList() {
 	Node<int>* g = new Node<int>(7);
 	Node<int>* f = new Node<int>(5, g);
@@ -80,5 +89,11 @@ int main() {
 	removeDuplicates2(head2);
 	printAll(head2);
 	cout << endl;
+
+	Node<int>* head3 = createLinkedList();
+	printAll(head3);
+	cout << findKthElement(head3, 0) << endl;
+	cout << findKthElement(head3, 2) << endl;
+	cout << findKthElement(head3, 4) << endl;
 }
 
