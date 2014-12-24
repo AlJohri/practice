@@ -14,6 +14,12 @@ class Node {
 		~Node() {};
 };
 
+template<class T>
+void appendItem(Node<T>*&head, Node<T>*&tail, Node<T>*cur) {
+	if (head == NULL) { head = cur; tail = cur; }
+	else { tail->next = cur; tail = cur; }
+}
+
 // 2.1 Write code to remove duplicates from an unsorted linked list.
 // FOLLOW UP
 // How would you solve this problem if a temporary buffer is not allowed?
@@ -94,12 +100,6 @@ void removeNode(Node<T>*& head, T item) {
 // than x come before all nodes greater than or equal to x.
 
 template<class T>
-void appendItem(Node<T>*&head, Node<T>*&tail, Node<T>*cur) {
-	if (head == NULL) { head = cur; tail = cur; }
-	else { tail->next = cur; tail = cur; }
-}
-
-template<class T>
 void pivotList(Node<T>*&head, T pivot) {
 	Node<T>* headLeft = NULL; Node<T>* tailLeft = NULL;
 	Node<T>* headPivot = NULL; Node<T>* tailPivot = NULL;
@@ -117,6 +117,35 @@ void pivotList(Node<T>*&head, T pivot) {
 	head = headLeft;
 
 	return;
+}
+
+// 2.5 You have two numbers represented by a linked list, where each node contains a
+// single digit. The digits are stored in reverse order, such that the Ts digit is at the
+// head of the list. Write a function that adds the two numbers and returns the sum
+// as a linked list.
+
+Node<int>* addLists(Node<int>* l1, Node<int>* l2) {
+	Node<int>* l3Head = NULL; Node<int>* l3Tail = NULL;
+	int curRemainder = 0;
+	while (true) {
+		if (l1 && l2) {
+			int curSum = l1->data + l2->data + curRemainder;
+			curRemainder = 0;
+			appendItem(l3Head, l3Tail, new Node<int>(curSum % 10));
+			curRemainder += curSum/10;
+		}
+		else if (l1 && !l2) {
+			appendItem(l3Head, l3Tail, new Node<int>(l1->data));
+		}
+		else if (!l1 && l2) {
+			appendItem(l3Head, l3Tail, new Node<int>(l2->data));
+		}
+		else {
+			return l3Head;
+		}
+		l1 = l1->next;
+		l2 = l2->next;
+	}
 }
 
 template<class T>
@@ -172,16 +201,28 @@ int main() {
 	printAll(head4);
 	cout << endl;
 
-	Node<int>* g = new Node<int>(6);
-	Node<int>* f = new Node<int>(1, g);
-	Node<int>* e = new Node<int>(4, f);
-	Node<int>* d = new Node<int>(7, e);
-	Node<int>* c = new Node<int>(3, d);
-	Node<int>* b = new Node<int>(5, c);
-	Node<int>* head5 = new Node<int>(2, b);
+	Node<int>* head5_6 = new Node<int>(6);
+	Node<int>* head5_5 = new Node<int>(1, head5_6);
+	Node<int>* head5_4 = new Node<int>(4, head5_5);
+	Node<int>* head5_3 = new Node<int>(7, head5_4);
+	Node<int>* head5_2 = new Node<int>(3, head5_3);
+	Node<int>* head5_1 = new Node<int>(5, head5_2);
+	Node<int>* head5 = new Node<int>(2, head5_1);
 	printAll(head5);
 	pivotList(head5, 3);
 	printAll(head5);
+	cout << endl;
+
+	Node<int>* head6_2 = new Node<int>(6);
+	Node<int>* head6_1 = new Node<int>(1, head6_2);
+	Node<int>* head6 = new Node<int>(7, head6_1);
+	printAll(head6);
+	Node<int>* head7_2 = new Node<int>(2);
+	Node<int>* head7_1 = new Node<int>(9, head7_2);
+	Node<int>* head7 = new Node<int>(5, head7_1);
+	printAll(head7);
+	Node<int>* head8 = addLists(head6, head7);
+	printAll(head8);
 	cout << endl;
 }
 
