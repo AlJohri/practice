@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 #include <unordered_map>
+#include <stack>
+
 using namespace std;
 
 template<class T>
@@ -206,9 +208,32 @@ Node<T>* findLoopStart(Node<T>* head) {
 			if (cur2->checked == true) return cur2;
 		}
 	}
-	else {
-		return NULL;
-	}
+
+	return NULL;
+}
+
+// 2.7 Implement a function to check if a linked list is a palindrome
+
+template<class T>
+bool isPalindrome(Node<T>* head) {
+	Node<T>* slow = head;
+	Node<T>* fast = head;
+	stack <char> reverse;
+
+	do {
+		reverse.push(slow->data);
+		slow = slow->next;
+		fast = fast->next->next;
+	} while (slow != NULL && fast != NULL && fast->next != NULL);
+
+	if (fast != NULL) slow = slow->next; // odd length word
+
+	do {
+		if (slow->data != reverse.top()) { return false; }
+		reverse.pop();
+	} while ((slow = slow->next));
+
+	return true;
 }
 
 template<class T>
@@ -351,6 +376,36 @@ int main() {
 	else cout << "head11 has no loop" << endl;
 	if (head12LoopStart != NULL) cout << "head12 LoopStart " << head12LoopStart->data << endl;
 	else cout << "head12 has no loop" << endl;
+
+	// deified
+	Node<char>* head13_6 = new Node<char>('d');
+	Node<char>* head13_5 = new Node<char>('e', head13_6);
+	Node<char>* head13_4 = new Node<char>('i', head13_5);
+	Node<char>* head13_3 = new Node<char>('f', head13_4);
+	Node<char>* head13_2 = new Node<char>('i', head13_3);
+	Node<char>* head13_1 = new Node<char>('e', head13_2);
+	Node<char>* head13 = new Node<char>('d', head13_1);
+	printAll(head13);
+	cout << isPalindrome(head13) << endl;
+
+	// redder
+	Node<char>* head14_5 = new Node<char>('r');
+	Node<char>* head14_4 = new Node<char>('e', head14_5);
+	Node<char>* head14_3 = new Node<char>('d', head14_4);
+	Node<char>* head14_2 = new Node<char>('d', head14_3);
+	Node<char>* head14_1 = new Node<char>('e', head14_2);
+	Node<char>* head14 = new Node<char>('r', head14_1);
+	printAll(head14);
+	cout << isPalindrome(head14) << endl;
+
+	// redder
+	Node<char>* head15_4 = new Node<char>('o');
+	Node<char>* head15_3 = new Node<char>('l', head15_4);
+	Node<char>* head15_2 = new Node<char>('l', head15_3);
+	Node<char>* head15_1 = new Node<char>('e', head15_2);
+	Node<char>* head15 = new Node<char>('h', head15_1);
+	printAll(head15);
+	cout << isPalindrome(head15) << endl;
 
 }
 
