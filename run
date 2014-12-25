@@ -5,6 +5,12 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
-rm -f a.out
-g++ $1 && ./a.out
-rm -f a.out
+if [[ $1 == *"cpp"* ]]; then
+	rm -f a.out
+	g++ $1 && ./a.out
+	rm -f a.out
+elif [[ $1 == *"java"* ]]; then
+	rm -f "${1%%.*}".class
+	javac $1 && java "${1%%.*}"
+	rm -f "${1%%.*}".class
+fi
