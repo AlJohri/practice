@@ -227,31 +227,14 @@ int main() {
 	cout << findKthElement(head3, 4) << endl;
 	cout << endl;
 
-	// doesn't work
-	// cout << "deleteNode (without access to head)" << endl;
-	// Node<int>* head4 = createLinkedList();
-	// printAll(head4);
-	// Node<int>* first4 = head4;
-	// Node<int>* second4 = head4->next;
-	// Node<int>* third4 = head4->next->next;
-	// Node<int>* fourth4 = head4->next->next->next;
-	// cout << "delete fourth: " << fourth4->data << endl;
-	// deleteNode(fourth4);
-	// printAll(head4);
-	// cout << "fourth is now: " << fourth4->data << endl;
-	// cout << "delete second: " << second4->data << endl;
-	// deleteNode(second4);
-	// printAll(head4);
-	// cout << "second is now: " << second4->data << endl;
-	// cout << "delete first: " << first4->data << endl;
-	// deleteNode(first4);
-	// printAll(head4);
-	// cout << "first4 is now: " << first4->data << endl;
-	// cout << "delete third: " << third4->data << endl;
-	// deleteNode(third4);
-	// printAll(head4);
-	// cout << "third4 is now: " << third4->data << endl;
-	// cout << endl;
+	cout << "deleteNode (without access to head)" << endl;
+	Node<int>* head4 = createLinkedList();
+	printAll(head4);
+	Node<int>* tmp = head4->next->next;
+	cout << "remove node with value: " << tmp->data << endl;
+	deleteNode(tmp);
+	printAll(head4);
+	cout << endl;
 
 	cout << "removeNode" << endl;
 	Node<int>* head5 = createLinkedList();
