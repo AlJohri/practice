@@ -8,6 +8,7 @@ class Node {
 	public:
 		Node* next;
 		T data;
+		bool checked;
 		Node() : next(NULL) {};
 		Node(T mydata) : data(mydata), next(NULL) {};
 		Node(T mydata, Node* mynext) : data(mydata), next(mynext) {};
@@ -182,6 +183,34 @@ Node<int>* addLists(Node<int>* l1, Node<int>* l2) {
 	}
 }
 
+// 2.6 Given a circular linked list, implement an algorithm which returns the node at the
+// beginning of the loop.
+
+template<class T>
+Node<T>* findLoopStart(Node<T>* head) {
+	Node<T>* slow = head;
+	Node<T>* fast = head;
+
+	do {
+		slow = slow->next;
+		fast = fast->next->next;
+	} while (slow != NULL && fast != NULL && fast->next != NULL && slow != fast);
+
+	if (slow == fast && slow != NULL && fast != NULL) {
+		Node<T>* loopPtr = slow;
+		loopPtr->checked = true;
+		Node<T>* cur = loopPtr->next;
+		while (cur != loopPtr) { cur->checked = true; cur = cur->next; }
+		Node<T>* cur2 = head;
+		while((cur2 = cur2->next)) {
+			if (cur2->checked == true) return cur2;
+		}
+	}
+	else {
+		return NULL;
+	}
+}
+
 template<class T>
 void printAll(Node<T>* head) {
 	for (Node<T>* cur = head; cur != NULL; cur = cur->next) {
@@ -302,5 +331,26 @@ int main() {
 	Node<int>* head10 = addLists(head8, head9);
 	printAll(head10);
 	cout << endl;
+
+	cout << "findLoopStart" << endl;
+	Node<int>* head11_7 = new Node<int>(8);
+	Node<int>* head11_6 = new Node<int>(7, head11_7);
+	Node<int>* head11_5 = new Node<int>(6, head11_6);
+	Node<int>* head11_4 = new Node<int>(5, head11_5);
+	Node<int>* head11_3 = new Node<int>(4, head11_4);
+	Node<int>* head11_2 = new Node<int>(3, head11_3);
+	Node<int>* head11_1 = new Node<int>(2, head11_2);
+	Node<int>* head11 = new Node<int>(1, head11_1);
+	head11_7->next = head11_2; // loop
+	Node<int>* head12 = createLinkedList();
+
+	Node<int>* head11LoopStart = findLoopStart(head11);
+	Node<int>* head12LoopStart = findLoopStart(head12);
+
+	if (head11LoopStart != NULL) cout << "head11 LoopStart " << head11LoopStart->data << endl;
+	else cout << "head11 has no loop" << endl;
+	if (head12LoopStart != NULL) cout << "head12 LoopStart " << head12LoopStart->data << endl;
+	else cout << "head12 has no loop" << endl;
+
 }
 
