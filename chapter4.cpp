@@ -59,13 +59,24 @@ void BinaryTree<T>::insert(T key, Node<T>* leaf) {
 }
 
 template<class T>
+void BinaryTree<T>::destroy_tree(Node<T>* leaf) {
+	if (leaf != NULL) {
+		if (leaf->left != NULL) destroy_tree(leaf->left);
+		if (leaf->right != NULL) destroy_tree(leaf->right);
+		delete leaf;
+	}
+	return;
+}
+
+template<class T>
 void BinaryTree<T>::insert(T key) {
-	if (this->root != NULL) {
-		insert(key, this->root);
-	}
-	else {
-		this->root = new Node<T>(key);
-	}
+	if (this->root != NULL) insert(key, this->root);
+	else this->root = new Node<T>(key);
+}
+
+template<class T>
+void BinaryTree<T>::destroy_tree() {
+	destroy_tree(this->root);
 }
 
 template<class T>
@@ -108,12 +119,13 @@ void BinaryTree<T>::visulizeTree() {
 	myfile << ss1.str() << ss2.str();
 	myfile << "}" << endl;
 	myfile.close();
+	system("dot -Tjpeg sample.dot -o sample.jpg");
+	system("open sample.jpg");
 	return;
 }
 
 int main() {
 	BinaryTree<int>* bt = createRandomTree<int>(100);
 	bt->visulizeTree();
+	bt->destroy_tree();
 }
-
-// dot -Tjpeg sample.dot -o sample.jpg
