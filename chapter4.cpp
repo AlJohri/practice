@@ -39,6 +39,7 @@ class BinaryTree {
         void destroy_tree();
         int maxDepth();
         bool isBalanced();
+        bool isBalanced2();
         void inOrder();
 
         void visulizeTree();        
@@ -47,8 +48,10 @@ class BinaryTree {
         void insert(T key, Node<T>* leaf);
         Node<T> *search(T key, Node<T>* leaf);
         int maxDepth(Node<T>* leaf);
+        int checkDepth(Node<T>* n);
         void inOrder(Node<T>* leaf);
         bool isBalanced(Node<T>* leaf);
+        bool isBalanced2(Node<T>* leaf);
 
         Node<T> *root;
 };
@@ -144,6 +147,10 @@ void BinaryTree<T>::inOrder() {
 	return;
 }
 
+// 4.1 Implement a function to check if a binary tree is balanced. For the purposes of
+// this question, a balanced tree is defined to be a tree such that the heights of the
+// two subtrees of any node never differ by more than one.
+
 template<class T>
 int BinaryTree<T>::maxDepth(Node<T>* n) {
 	if (n == NULL) return 0;
@@ -151,13 +158,23 @@ int BinaryTree<T>::maxDepth(Node<T>* n) {
 }
 
 template<class T>
+int BinaryTree<T>::checkDepth(Node<T>* n) {
+	if (n == NULL) return 0;
+
+	int lDepth = checkDepth(n->left);
+	if (lDepth == -1) return -1;
+
+	int rDepth = checkDepth(n->right);
+	if (rDepth == -1) return -1;
+
+	if (abs(lDepth - rDepth) > 1) { return -1; }
+	else return fmax(lDepth, rDepth) + 1;
+}
+
+template<class T>
 int BinaryTree<T>::maxDepth() {
 	return maxDepth(this->root);
 }
-
-// 4.1 Implement a function to check if a binary tree is balanced. For the purposes of
-// this question, a balanced tree is defined to be a tree such that the heights of the
-// two subtrees of any node never differ by more than one.
 
 template<class T>
 bool BinaryTree<T>::isBalanced(Node<T> * n) {
@@ -173,11 +190,23 @@ bool BinaryTree<T>::isBalanced() {
 	return isBalanced(this->root);
 }
 
+template<class T>
+bool BinaryTree<T>::isBalanced2(Node<T> * n) {
+	if (checkDepth(n) == -1) return false;
+	return true;
+}
+
+template<class T>
+bool BinaryTree<T>::isBalanced2() {
+	return isBalanced2(this->root);
+}
+
 int main() {
 	BinaryTree<int>* bt = createRandomTree<int>(100);
 	bt->visulizeTree();
 	cout << bt->maxDepth() << endl;
 	cout << bt->isBalanced() << endl;
+	cout << bt->isBalanced2() << endl;
 	bt->inOrder(); cout << endl;
 	bt->destroy_tree();
 }

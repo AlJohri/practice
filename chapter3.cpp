@@ -1,7 +1,4 @@
 #include <iostream>
-#include <string>
-#include <unordered_map>
-#include <stack>
 
 using namespace std;
 
@@ -58,6 +55,10 @@ class Queue {
 			return firstData;
 		}
 };
+
+// 3.1 Describe how you could use a single array to implement three stacks.
+
+// [X| | | | |X| | | | | |X| | | | | ]
 
 int main() {
 	Stack<int>* s1 = new Stack<int>();
