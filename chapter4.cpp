@@ -162,9 +162,8 @@ int BinaryTree<T>::maxDepth() {
 template<class T>
 bool BinaryTree<T>::isBalanced(Node<T> * n) {
 	if (n != NULL) {
-		if (abs(maxDepth(n->left) - maxDepth(n->right)) > 1) {
-			return false;
-		}
+		if (abs(maxDepth(n->left) - maxDepth(n->right)) > 1) return false;
+		else return isBalanced(n->left) && isBalanced(n->right);
 	}
 	return true;
 }
