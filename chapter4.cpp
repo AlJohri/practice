@@ -37,7 +37,8 @@ class BinaryTree {
         void insert(T key);
         Node<T> *search(T key);
         void destroy_tree();
-        bool maxDepth();
+        int maxDepth();
+        bool isBalanced();
         void inOrder();
 
         void visulizeTree();        
@@ -45,8 +46,9 @@ class BinaryTree {
         void destroy_tree(Node<T>* leaf);
         void insert(T key, Node<T>* leaf);
         Node<T> *search(T key, Node<T>* leaf);
-        bool maxDepth(Node<T>* leaf);
+        int maxDepth(Node<T>* leaf);
         void inOrder(Node<T>* leaf);
+        bool isBalanced(Node<T>* leaf);
 
         Node<T> *root;
 };
@@ -101,12 +103,12 @@ void BinaryTree<T>::visulizeTree() {
 	stringstream ss1, ss2;
 
 	stack<Node<T>*> nodes;
-	unordered_map<int,T> map;
+	unordered_map<int,string> map;
 	nodes.push(this->root);
 
 	while(nodes.empty() == false) {
 		Node<T>* cur = nodes.top(); nodes.pop();
-		map[cur->id] = cur->data;
+		map[cur->id] = "index: " + to_string(cur->id) + " | " + "value: " + to_string(cur->data) + " | " + "depth: " + to_string(this->maxDepth(cur));
 		if (cur->left) ss2 << "\tnode" << cur->id << ":left -> " << "node" << cur->left->id << ";" << endl;
 		if (cur->right) ss2 << "\tnode" << cur->id << ":right -> " << "node" << cur->right->id << ";" << endl;
 		if (cur->right) nodes.push(cur->right);
@@ -114,7 +116,7 @@ void BinaryTree<T>::visulizeTree() {
 	}
 
 	for (int i = 0; i < this->root->count; ++i) {
-		ss1 << "\tnode" << i << "[label=\"{" << i << "(" << map[i] << ")" << "|{<left>|<right>}}\"];" << endl;
+		ss1 << "\tnode" << i << "[label=\"{" << map[i] << "|{<left>|<right>}}\"];" << endl;
 	}
 
 	ofstream myfile;
@@ -127,21 +129,6 @@ void BinaryTree<T>::visulizeTree() {
 	system("dot -Tjpeg sample.dot -o sample.jpg");
 	system("open sample.jpg");
 	return;
-}
-
-// 4.1 Implement a function to check if a binary tree is balanced. For the purposes of
-// this question, a balanced tree is defined to be a tree such that the heights of the
-// two subtrees of any node never differ by more than one.
-
-template<class T>
-bool BinaryTree<T>::maxDepth(Node<T>* n) {
-	if (n == NULL) return 0;
-	return fmax(maxDepth(n->left), maxDepth(n->right)) + 1;
-}
-
-template<class T>
-bool BinaryTree<T>::maxDepth() {
-	return maxDepth(this->root);
 }
 
 template<class T>
@@ -157,10 +144,41 @@ void BinaryTree<T>::inOrder() {
 	return;
 }
 
+template<class T>
+int BinaryTree<T>::maxDepth(Node<T>* n) {
+	if (n == NULL) return 0;
+	return fmax(maxDepth(n->left), maxDepth(n->right)) + 1;
+}
+
+template<class T>
+int BinaryTree<T>::maxDepth() {
+	return maxDepth(this->root);
+}
+
+// 4.1 Implement a function to check if a binary tree is balanced. For the purposes of
+// this question, a balanced tree is defined to be a tree such that the heights of the
+// two subtrees of any node never differ by more than one.
+
+template<class T>
+bool BinaryTree<T>::isBalanced(Node<T> * n) {
+	if (n != NULL) {
+		if (abs(maxDepth(n->left) - maxDepth(n->right)) > 1) {
+			return false;
+		}
+	}
+	return true;
+}
+
+template<class T>
+bool BinaryTree<T>::isBalanced() {
+	return isBalanced(this->root);
+}
+
 int main() {
 	BinaryTree<int>* bt = createRandomTree<int>(100);
 	bt->visulizeTree();
 	cout << bt->maxDepth() << endl;
+	cout << bt->isBalanced() << endl;
 	bt->inOrder(); cout << endl;
 	bt->destroy_tree();
 }
