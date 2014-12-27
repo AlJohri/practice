@@ -17,6 +17,7 @@ class Node {
 		Node* left;
 		Node* right;
 		T data;
+		int state;
 		const int id;
 		Node() : id(count++), left(NULL), right(NULL) {};
 		Node(T mydata) : id(count++), data(mydata), left(NULL), right(NULL) {};
@@ -30,30 +31,44 @@ int Node<T>::count = 0;
 
 template<class T>
 class BinaryTree {
-    public:
-        BinaryTree() : root(NULL) {};
-        ~BinaryTree() {};
+	public:
+		BinaryTree() : root(NULL) {};
+		~BinaryTree() {};
 
-        void insert(T key);
-        Node<T> *search(T key);
-        void destroy_tree();
-        int maxDepth();
-        bool isBalanced();
-        bool isBalanced2();
-        void inOrder();
+		void insert(T key);
+		Node<T> *search(T key);
+		void destroy_tree();
+		int maxDepth();
+		bool isBalanced();
+		bool isBalanced2();
+		void printTree();
+		bool search(Node<T>* a, Node<T>* b);
+		Node<T>* getRoot() { return this->root; }
+		Node<T>* getMin() {
+			if (this->root == NULL) return NULL;
+			Node<T>* cur = this->root;
+			while (cur->left != NULL) cur = cur->left;
+			return cur;
+		}
+		Node<T>* getMax() {
+			if (this->root == NULL) return NULL;
+			Node<T>* cur = this->root;
+			while (cur->right != NULL) cur = cur->right;
+			return cur;
+		}
 
-        void visulizeTree();        
-    private:
-        void destroy_tree(Node<T>* leaf);
-        void insert(T key, Node<T>* leaf);
-        Node<T> *search(T key, Node<T>* leaf);
-        int maxDepth(Node<T>* leaf);
-        int checkDepth(Node<T>* n);
-        void inOrder(Node<T>* leaf);
-        bool isBalanced(Node<T>* leaf);
-        bool isBalanced2(Node<T>* leaf);
+		void visulizeTree();
+	private:
+		void destroy_tree(Node<T>* leaf);
+		void insert(T key, Node<T>* leaf);
+		Node<T> *search(T key, Node<T>* leaf);
+		int maxDepth(Node<T>* leaf);
+		int checkDepth(Node<T>* n);
+		void printTree(Node<T>* leaf);
+		bool isBalanced(Node<T>* leaf);
+		bool isBalanced2(Node<T>* leaf);
 
-        Node<T> *root;
+		Node<T> *root;
 };
 
 template<class T>
@@ -114,8 +129,8 @@ void BinaryTree<T>::visulizeTree() {
 		map[cur->id] = "index: " + to_string(cur->id) + " | " + "value: " + to_string(cur->data) + " | " + "depth: " + to_string(this->maxDepth(cur));
 		if (cur->left) ss2 << "\tnode" << cur->id << ":left -> " << "node" << cur->left->id << ";" << endl;
 		if (cur->right) ss2 << "\tnode" << cur->id << ":right -> " << "node" << cur->right->id << ";" << endl;
+		if (cur->left) nodes.push(cur->left);
 		if (cur->right) nodes.push(cur->right);
-        if (cur->left) nodes.push(cur->left);
 	}
 
 	for (int i = 0; i < this->root->count; ++i) {
@@ -134,16 +149,17 @@ void BinaryTree<T>::visulizeTree() {
 	return;
 }
 
+// in order
 template<class T>
-void BinaryTree<T>::inOrder(Node<T>* n) {
-	cout << n->id << "(" << n->data << ")" << ' ';
-	if (n->left) inOrder(n->left);
-	if (n->right) inOrder(n->right);
+void BinaryTree<T>::printTree(Node<T>* n) {
+	if (n->left) printTree(n->left);
+	cout << n->data << ' ';
+	if (n->right) printTree(n->right);
 }
 
 template<class T>
-void BinaryTree<T>::inOrder() {
-	inOrder(this->root);
+void BinaryTree<T>::printTree() {
+	printTree(this->root);
 	return;
 }
 
@@ -201,12 +217,58 @@ bool BinaryTree<T>::isBalanced2() {
 	return isBalanced2(this->root);
 }
 
+// 4.2 Given a directed graph, design an algorithm to find out whether there is a route
+// between two nodes.
+
+template<class T>
+bool BinaryTree<T>::search(Node<T>* a, Node<T>* b) {
+	if (a == NULL || b == NULL) return false;
+	if (a->id == b->id) return true;
+	return search(a->left, b) || search(a->right, b);
+};
+
+template<class T>
+Node<T>* randomWalk(Node<T>* cur, int steps) {
+	if (cur == NULL) return cur;
+	srand(time(NULL));
+	for (int i = 0; i < steps; i++) {
+		int random = rand() % 2;
+
+		if (cur->left != NULL && cur->right != NULL) {
+			if (random == 0) cur = cur->left;
+			else cur = cur->right;
+		}
+		else if (cur->left != NULL) cur = cur->left;
+		else if (cur->right != NULL) cur = cur->right;
+		else return cur;
+	}
+	return cur;
+}
+
 int main() {
 	BinaryTree<int>* bt = createRandomTree<int>(100);
 	bt->visulizeTree();
 	cout << bt->maxDepth() << endl;
 	cout << bt->isBalanced() << endl;
 	cout << bt->isBalanced2() << endl;
-	bt->inOrder(); cout << endl;
+	bt->printTree(); cout << endl;
+
+	Node<int>* btRoot = bt->getRoot();
+
+	Node<int>* a = randomWalk<int>(btRoot, 2);
+	Node<int>* b = randomWalk<int>(btRoot, 5);
+	cout << "random node a " << a->id << " " << a->data << endl;
+	cout << "random node b " << b->id << " " << b->data << endl;
+	cout << "path from a to b: " << bt->search(a, b) << endl;
+	cout << endl;
+
+	Node<int>* c = bt->getMin();
+	Node<int>* d = bt->getMax();
+	cout << "min node c " << c->id << " " << c->data << endl;
+	cout << "max node d " << d->id << " " << d->data << endl;
+	cout << "path from c to d: " << bt->search(c, d) << endl;
+	cout << endl;
+
+
 	bt->destroy_tree();
 }
