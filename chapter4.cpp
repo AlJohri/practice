@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <cmath>
 #include <stack>
 #include <unordered_map>
 
@@ -36,12 +37,16 @@ class BinaryTree {
         void insert(T key);
         Node<T> *search(T key);
         void destroy_tree();
+        bool maxDepth();
+        void inOrder();
 
         void visulizeTree();        
     private:
         void destroy_tree(Node<T>* leaf);
         void insert(T key, Node<T>* leaf);
         Node<T> *search(T key, Node<T>* leaf);
+        bool maxDepth(Node<T>* leaf);
+        void inOrder(Node<T>* leaf);
 
         Node<T> *root;
 };
@@ -124,8 +129,38 @@ void BinaryTree<T>::visulizeTree() {
 	return;
 }
 
+// 4.1 Implement a function to check if a binary tree is balanced. For the purposes of
+// this question, a balanced tree is defined to be a tree such that the heights of the
+// two subtrees of any node never differ by more than one.
+
+template<class T>
+bool BinaryTree<T>::maxDepth(Node<T>* n) {
+	if (n == NULL) return 0;
+	return fmax(maxDepth(n->left), maxDepth(n->right)) + 1;
+}
+
+template<class T>
+bool BinaryTree<T>::maxDepth() {
+	return maxDepth(this->root);
+}
+
+template<class T>
+void BinaryTree<T>::inOrder(Node<T>* n) {
+	cout << n->id << "(" << n->data << ")" << ' ';
+	if (n->left) inOrder(n->left);
+	if (n->right) inOrder(n->right);
+}
+
+template<class T>
+void BinaryTree<T>::inOrder() {
+	inOrder(this->root);
+	return;
+}
+
 int main() {
 	BinaryTree<int>* bt = createRandomTree<int>(100);
 	bt->visulizeTree();
+	cout << bt->maxDepth() << endl;
+	bt->inOrder(); cout << endl;
 	bt->destroy_tree();
 }
