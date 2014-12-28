@@ -1,6 +1,8 @@
 # GeeksforGeeks: Amazon Interview Experiences
 
 Source: http://www.geeksforgeeks.org/tag/amazon/
+Most Asked: http://geeksquiz.com/amazons-asked-interview-questions/
+Questions Forum: http://www.geeksforgeeks.org/forums/topic-tag/amazon/
 
 Title                                                                                                                                                                                                                |  Date      
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------
