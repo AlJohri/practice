@@ -120,3 +120,41 @@ def powerset(A):
 	return reduce(lambda x,y: x+y, [list(combinations(A, i)) for i in range(len(A)+1)], [])
 
 print "[1,2,3,4]", powerset([1,2,3,4])
+
+# 9.5 Write a method to compute all permutations of a string
+
+from itertools import permutations
+
+def get_perms(str):
+	return ["".join(x) for x in list(permutations(str, len(str)))]
+
+print "hello", get_perms("hello")
+
+# 9.6 Implement an algorithm to print all valid (i.e., properly opened and closed) combinations
+# of n-pairs of parentheses.
+
+# 9.7 Implement the "paint fill" function that one might see on many image editing
+# programs. That is, given a screen (represented by a two-dimensional array of colors),
+# a point, and a new color, fill in the surrounding area until the color changes from the
+# original color.
+
+# 9.8 Given an infinite number of quarters (25 cents), dimes (10 cents), nickels (5 cents)
+# and pennies (1 cent), write code to calculate the number of ways of representing n
+# cents.
+
+# 9.9 Write an algorithm to prim all ways of arranging eight queens on an 8x8 chess
+# board so that none of them share the same row, column or diagonal. In this case,
+# "diagonal" means all diagonals, not just the two that bisect the board.
+
+# 9.10 You have a stack of n boxes, with widths w1, heights h1, and depths d1. The boxes
+# cannot be rotated and can only be stacked on top of one another if each box in the
+# stack is strictly larger than the box above it in width, height, and depth. Implement
+# a method to build the tallest stack possible, where the heigh t of a stack is the sum of
+# the heights of each box.
+
+# 9.11 Given a boolean expression consisting of the symbols 0, 1, &, |, and ^, and a desired
+# boolean result value result, implement a function to count the number of ways of
+# parenthesizing the expression such that it evaluates to result.
+
+
+
