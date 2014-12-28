@@ -5,26 +5,26 @@ This is my attempt at completing the problems in Cracking the Coding Interview 5
 ## Example Usage
 
 ```
-./run chapter01.cpp
-./run chapter02.cpp
-./run chapter03.cpp
-./run chapter04.cpp
-./run chapter05.cpp
-./run chapter09.py
-./run chapter13.cpp
-./run chapter14.java
+./run ctci/chapter01.cpp
+./run ctci/chapter02.cpp
+./run ctci/chapter03.cpp
+./run ctci/chapter04.cpp
+./run ctci/chapter05.cpp
+./run ctci/chapter09.py
+./run ctci/chapter13.cpp
+./run ctci/chapter14.java
 ```
 
 ## Example Usage (Debug)
 ```
-./debug chapter01.cpp
-./debug chapter01.cpp
-./debug chapter02.cpp
-./debug chapter03.cpp
-./debug chapter04.cpp
-./debug chapter05.cpp
-./debug chapter09.py
-./debug chapter13.cpp
+./debug ctci/chapter01.cpp
+./debug ctci/chapter01.cpp
+./debug ctci/chapter02.cpp
+./debug ctci/chapter03.cpp
+./debug ctci/chapter04.cpp
+./debug ctci/chapter05.cpp
+./debug ctci/chapter09.py
+./debug ctci/chapter13.cpp
 
 # java debug not implemented yet
 # ./debug chapter14.java

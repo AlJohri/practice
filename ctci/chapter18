@@ -1,0 +1,46 @@
+18.1 Write a function that adds two numbers. You should not use + or any arithmetic
+operators.
+
+18.2 Write a method to shuffle a deck of cards. It must be a perfect shuffle—in other
+words, each of the 52! permutations of the deck has to be equally likely. Assume that
+you are given a random number generator which is perfect.
+
+18.3 Write a method to randomly generate a set of m integers from an array of size n.
+Each element must have equal probability of being chosen.
+
+18.4 Write a method to count the number of 2s between 0 and n.
+
+18.5 You have a large text file containing words. Given any two words, find the shortest
+distance (in terms of number of words) between them in the file. If the operation
+will be repeated many times for the same file (but different pairs of words), can you
+optimize your solution?
+
+18.6 Describe an algorithm to find the smallest one million numbers in one billion
+numbers. Assume that the computer memory can hold all one billion numbers.
+
+18.7 Given a list of words, write a program to find the longest word made of other words
+in the list.
+
+18.8 Given a string s and an array of smaller strings T, design a method to search s for
+each small string in T.
+
+18.9 Numbers are randomly generated and passed to a method. Write a program to find
+and maintain the median value as new values are generated.
+
+18.10 Given two words of equal length that are in a dictionary, write a method to transform
+one word into another word by changing only one letter at a time. The new
+word you get in each step must be in the dictionary.
+
+18.11 Imagine you have a square matrix, where each cell (pixel) is either black or white.
+Design an algorithm to find the maximum subsquare such that all four borders are
+filled with black pixels.
+
+18.12 Given an NxN matrix of positive and negative integers, write code to find the submatrix
+with the largest possible sum.
+
+18.13 Given a list of millions of words, design an algorithm to create the largest possible
+rectangle of letters such that every row forms a word (reading left to right) and
+every column forms a word (reading top to bottom). The words need not be chosen
+consecutively from the list, but all rows must be the same length and all columns
+must be the same height.
+

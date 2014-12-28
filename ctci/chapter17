@@ -1,0 +1,56 @@
+17.1 Write a function to swap a number in place (that is, without temporary variables)
+
+17.2 Design an algorithm to figure out if someone has won a game of tic-tac-toe.
+
+17.3 Write an algorithm which computes the number of trailing zeros in n factorial.
+
+17.4 Write a method which finds the maximum of two numbers. You should not use
+if-else or any other comparison operator.
+
+17.5 The Came of Master Mind is played as follows:
+
+The computer has four slots, and each slot will contain a ball that is red (R), yellow
+(Y), green (C) or blue (B). For example, the computer might have RGGB (Slot # 1 is red,
+Slots #2 and #3 are green, Slot #4 is blue).
+
+You, the user, are trying to guess the solution. You might, for example, guess YRGB.
+When you guess the correct color for the correct slot, you get a "hit." If you guess a
+color that exists but is in the wrong slot, you get a "pseudo-hit." Note that a slot that
+is a hit can never count as a pseudo-hit.
+
+For example, if the actual solution is RGBYandyou guess GGRR, you have one hit
+and one pseudo-hit.
+
+Write a method that, given a guess and a solution, returns the number of hits and
+pseudo-hits.
+
+17.6 Given an array of integers, write a method to find indices m and n such that if you
+sorted elements m through n, the entire array would be sorted. Minimize n - m (that
+is, find the smallest such sequence).
+
+17.7 Given any integer, print an English phrase that describes the integer (e.g., "One
+Thousand, Two Hundred Thirty Four").
+
+17.8 You are given an array of integers (both positive and negative). Find the contiguous
+sequence with the largest sum. Return the sum.
+
+17.9 Design a method to find the frequency of occurrences of any given word in a book.
+
+17.10
+
+17.11 Implement a method rand70 given randSQ- That is, given a method that generates
+a random number between 0 and 4 (inclusive), write a method that generates a
+random number between 0 and 6 (inclusive).
+
+17.12 Design an algorithm to find all pairs of integers within an array which sum to a specified
+value.
+
+17.13 Consider a simple node-like data structure called BiNode, which has pointers to two
+other nodes. The data structure BiNode could be used to represent both a binary
+tree (where nodel is the left node and node2 is the right node) or a doubly linked
+list (where nodel is the previous node and node2 is the next node). Implement a
+method to convert a binary search tree (implemented with BiNode) into a doubly
+linked list. The values should be kept in order and the operation should be performed
+in place (that is, on the original data structure).
+
+17.14
