@@ -5,9 +5,11 @@ This is my attempt at completing the problems in Cracking the Coding Interview 5
 ## Example Usage
 
 ```
-./run chapter1.cpp
-./run chapter2.cpp
-./run chapter3.cpp
-./run chapter4.cpp
-./run chapter9.py
+./run chapter01.cpp
+./run chapter02.cpp
+./run chapter03.cpp
+./run chapter04.cpp
+./run chapter05.cpp
+./run chapter09.py
+./run chapter15.java
 ```
