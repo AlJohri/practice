@@ -51,7 +51,7 @@ print "3,3", possiblePaths2(3,3)
 print "4,2", possiblePaths2(4,2)
 print ""
 
-# 9.3 A magic index in an array A[0.. .n-1] is defined to be an index such that A[i]
+# 9.3 A magic index in an array A[0...n-1] is defined to be an index such that A[i]
 # = i. Given a sorted array of distinct integers, write a method to find a magic
 # index, if one exists, in array A.
 #
@@ -59,3 +59,64 @@ print ""
 #
 # What if the values are not distinct?
 
+def findMagicIndex(A):
+	for i, a in enumerate(A):
+		if i == a: return i
+	return -1
+
+def findMagicIndex2(A, indicies=None):
+	if indicies == None: indicies = [x for x in range(len(A))]
+
+	if len(A) == 0: return -1
+	mid = len(A)/2
+
+	if len(A) == 1: return -1
+
+	if A[mid] == indicies[mid]:
+		return indicies[mid]
+	elif A[mid] < indicies[mid]:
+		return findMagicIndex2(A[mid:], indicies[mid:]) # right
+	else:
+		return findMagicIndex2(A[:mid], indicies[:mid]) # left
+
+# works with duplicates
+def findMagicIndex3(A, indicies=None):
+	if indicies == None: indicies = [x for x in range(len(A))]
+
+	if len(A) == 0: return -1
+	mid = len(A)/2
+
+	if A[mid] == indicies[mid]:
+		return indicies[mid]
+
+	if len(A) == 1: return -1
+
+	min_left = min(A[mid], mid)
+	left = findMagicIndex3(A[:min_left], indicies[:min_left])
+	if left > -1: return left
+
+	right = findMagicIndex3(A[mid:], indicies[mid:])
+	return right
+
+
+print "findMagicIndex"
+print "[-40,-20,-1,1,2,3,5,7,9,12,13]", findMagicIndex([-40,-20,-1,1,2,3,5,7,9,12,13])
+print ""
+
+print "findMagicIndex2"
+print "[-40,-20,-1,1,2,3,5,7,9,12,13]", findMagicIndex2([-40,-20,-1,1,2,3,5,7,9,12,13])
+print ""
+
+print "findMagicIndex3 (with duplicates)"
+print "[-40,-20,-1,1,2,3,5,7,9,12,13]", findMagicIndex3([-40,-20,-1,1,2,3,5,7,9,12,13])
+print "[-10,-5,2,2,2,3,4,7,9,12,13]", findMagicIndex3([-10,-5,2,2,2,3,4,7,9,12,13])
+print ""
+
+# 9.4 Write a method to return all subsets of a set.
+
+from itertools import combinations
+
+def powerset(A):
+	return reduce(lambda x,y: x+y, [list(combinations(A, i)) for i in range(len(A)+1)], [])
+
+print "[1,2,3,4]", powerset([1,2,3,4])
