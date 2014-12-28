@@ -56,10 +56,6 @@ class Queue {
 		}
 };
 
-// 3.1 Describe how you could use a single array to implement three stacks.
-
-// [X| | | | |X| | | | | |X| | | | | ]
-
 int main() {
 	Stack<int>* s1 = new Stack<int>();
 	s1->push(1);
