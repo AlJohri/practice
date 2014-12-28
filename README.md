@@ -4,7 +4,7 @@
 
 This is my attempt at completing the problems in Cracking the Coding Interview 5th edition.
 
-## Example Usage
+### Example Usage
 
 ```
 ./run ctci/chapter01.cpp
@@ -17,9 +17,9 @@ This is my attempt at completing the problems in Cracking the Coding Interview 5
 ./run ctci/chapter14.java
 ```
 
-# HackerRank
+## HackerRank
 
-## Example Usage
+### Example Usage
 
 ```
 cat hackerrank/finddigits.txt | ./run hackerrank/finddigits.cpp
