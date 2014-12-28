@@ -1,0 +1,148 @@
+<div class="post-content" id="post-content">
+					<p>Given a Binary Search Tree (BST), convert it to a Binary Tree such that every key of the original BST is changed to key plus sum of all greater keys in BST.  <span id="more-29039"></span></p>
+<p>Examples:</p>
+<pre>
+Input: Root of following BST
+              5
+            /   \
+           2     13
+
+Output: The given BST is converted to following Binary Tree
+              18
+            /   \
+          20     13
+</pre>
+<p>Source: <a href="http://www.geeksforgeeks.org/forum/topic/convert-a-bst">Convert a BST</a></p>
+<p><strong>Solution:</strong> Do reverse Inoorder traversal. Keep track of the sum of nodes visited so far. Let this sum be <em>sum</em>. For every node currently being visited, first add the key of this node to <em>sum</em>, i.e. <em>sum </em>= <em>sum </em>+ <em>node-&gt;key</em>. Then change the key of current node to <em>sum</em>, i.e., <em>node-&gt;key = sum</em>.<br>
+When a BST is being traversed in reverse Inorder, for every key currently being visited, all keys that are already visited are all greater keys.</p>
+<pre class="brush: cpp; highlight: [25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54]; title: ; notranslate" title="">
+// Program to change a BST to Binary Tree such that key of a node becomes
+// original key plus sum of all greater keys in BST
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+/* A BST node has key, left child and right child */
+struct node
+{
+    int key;
+    struct node* left;
+    struct node* right;
+};
+
+/* Helper function that allocates a new node with the given key and
+   NULL left and right  pointers.*/
+struct node* newNode(int key)
+{
+    struct node* node = (struct node*)malloc(sizeof(struct node));
+    node-&gt;key = key;
+    node-&gt;left = NULL;
+    node-&gt;right = NULL;
+    return (node);
+}
+
+// A recursive function that traverses the given BST in reverse inorder and
+// for every key, adds all greater keys to it
+void addGreaterUtil(struct node *root, int *sum_ptr)
+{
+    // Base Case
+    if (root == NULL)
+        return;
+
+    // Recur for right subtree first so that sum of all greater
+    // nodes is stored at sum_ptr
+    addGreaterUtil(root-&gt;right, sum_ptr);
+
+    // Update the value at sum_ptr
+    *sum_ptr = *sum_ptr + root-&gt;key;
+
+    // Update key of this node
+    root-&gt;key = *sum_ptr;
+
+    // Recur for left subtree so that the updated sum is added
+    // to smaller nodes
+    addGreaterUtil(root-&gt;left, sum_ptr);
+}
+
+// A wrapper over addGreaterUtil().  It initializes sum and calls
+// addGreaterUtil() to recursivel upodate and use value of sum
+void addGreater(struct node *root)
+{
+    int sum = 0;
+    addGreaterUtil(root, &amp;sum);
+}
+
+// A utility function to print inorder traversal of Binary Tree
+void printInorder(struct node* node)
+{
+    if (node == NULL)
+        return;
+    printInorder(node-&gt;left);
+    printf("%d ", node-&gt;key);
+    printInorder(node-&gt;right);
+}
+
+// Driver program to test above function
+int main()
+{
+    /* Create following BST
+              5
+            /   \
+           2     13  */
+    node *root = newNode(5);
+    root-&gt;left = newNode(2);
+    root-&gt;right = newNode(13);
+
+    printf(" Inorder traversal of the given tree\n");
+    printInorder(root);
+
+    addGreater(root);
+
+    printf("\n Inorder traversal of the modified tree\n");
+    printInorder(root);
+
+    return 0;
+}
+</pre>
+<p>Output:
+</p><pre> Inorder traversal of the given tree
+2 5 13
+ Inorder traversal of the modified tree
+20 18 13</pre>
+<p>Time Complexity: O(n) where n is the number of nodes in given Binary Search Tree.</p>
+<p>Please write comments if you find anything incorrect, or you want to share more information about the topic discussed above</p>
+		
+&#160;
+&#160;
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Big Rectangle Blog Bottom -->
+<ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-9465609616171866" data-ad-slot="4061219431"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+
+
+&#160;
+&#160;
+&#160;
+<h3>Related Topics:</h3><ul><li><a href="http://www.geeksforgeeks.org/perfect-binary-tree-specific-level-order-traversal/" title="Perfect Binary Tree Specific Level Order Traversal">Perfect Binary Tree Specific Level Order Traversal</a></li><li><a href="http://www.geeksforgeeks.org/print-nodes-top-view-binary-tree/" title="Print Nodes in Top View of Binary Tree">Print Nodes in Top View of Binary Tree</a></li><li><a href="http://www.geeksforgeeks.org/k-dimensional-tree/" title="K Dimensional Tree">K Dimensional Tree</a></li><li><a href="http://www.geeksforgeeks.org/convert-binary-tree-threaded-binary-tree/" title="Convert a Binary Tree to Threaded binary tree">Convert a Binary Tree to Threaded binary tree</a></li><li><a href="http://www.geeksforgeeks.org/serialize-deserialize-n-ary-tree/" title="Serialize and Deserialize an N-ary Tree">Serialize and Deserialize an N-ary Tree</a></li><li><a href="http://www.geeksforgeeks.org/serialize-deserialize-binary-tree/" title="Serialize and Deserialize a Binary Tree">Serialize and Deserialize a Binary Tree</a></li><li><a href="http://www.geeksforgeeks.org/given-binary-tree-print-nodes-two-given-level-numbers/" title="Print nodes between two given level numbers of a binary tree">Print nodes between two given level numbers of a binary tree</a></li><li><a href="http://www.geeksforgeeks.org/find-height-binary-tree-represented-parent-array/" title="Find Height of Binary Tree represented by Parent array">Find Height of Binary Tree represented by Parent array</a></li></ul>
+<p>Tags: <a href="http://www.geeksforgeeks.org/tag/amazon/" rel="tag">Amazon</a>, <a href="http://www.geeksforgeeks.org/tag/bst/" rel="tag">BST</a></p> 
+<div>
+<iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.geeksforgeeks.org%2Fconvert-bst-to-a-binary-tree%2F&amp;layout=button_count&amp;show_faces=false&amp;width=90&amp;action=like&amp;colorscheme=light" scrolling="no" frameborder="0" allowtransparency="true" style="border:none; overflow:hidden; width:90px; height:20px"></iframe>
+<a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.geeksforgeeks.org/convert-bst-to-a-binary-tree/" data-text="Convert a BST to a Binary Tree such that sum of all greater keys is added to every key" data-count="horizontal" data-via="jakerutter">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+<plusone size="medium" href="http://www.geeksforgeeks.org/convert-bst-to-a-binary-tree/"></plusone>
+<!-- Place this render call where appropriate -->
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script></div>
+
+
+
+
+
+				</div>		  
+			

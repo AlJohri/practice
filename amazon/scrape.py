@@ -9,7 +9,7 @@ other_counter = 1
 for i in range(12, 0, -1):
     response = requests.get("http://www.geeksforgeeks.org/tag/amazon/page/%d/" % i)
     doc = lxml.html.fromstring(response.content)
-    # post-date
+
     for item in doc.cssselect(".post-info"):
         title = item.cssselect('.post-title a')[0].text.replace("Amazon interview Experience", "").replace("Amazon Interview Experience", "").replace("Amazon Interview Questions", "").replace("Amazon Interview", "").replace("[TopTalent.in] ", "").replace(" | ", "").strip()
         title = (title[:70] + '..') if len(title) > 70 else title
@@ -29,6 +29,15 @@ for i in range(12, 0, -1):
         else:
             posts.append(("other" + str(other_counter).zfill(3), title_url, datestr, date))
             other_counter += 1
+
+        inner_response = requests.get(url)
+        inner_doc = lxml.html.fromstring(inner_response.content)
+        filename = "content/" + posts[-1][0] + ".html"
+        print(filename)
+        with open(filename, "w") as f:
+            content = lxml.html.tostring(inner_doc.cssselect("#post-content")[0])
+            f.write(content.decode('utf-8'))
+
         print(posts[-1])
 
 mindate = datetime.datetime(datetime.MINYEAR, 1, 1)

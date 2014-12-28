@@ -1,0 +1,69 @@
+<div class="post-content" id="post-content">
+					<p>I&#8217;m in E&amp;CE and I&#8217;m sharing my interview experience with Amazon on IIT campus to help you prepare for your interviews. <span id="more-125642"></span>There was online test for 300 students. 25 were selected for interviews. There were 4 back-to-back rounds on the same day. My interview process lasted for around 5 hours and finally I got hired. <img src="http://d2o58evtke57tz.cloudfront.net/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley"></p>
+<p><strong>Round 1:</strong><br>
+1. Given 1 billion integers. Find 100 maximum integers. Memory available is insufficient to store 1 billion integers.</p>
+<p>2. Given array of N integers ranging from 0 to N-1. Output maximum repeating integer. Use only O(1) memory.</p>
+<p><strong>Round 2:</strong><br>
+1. An array of integers is given such that it is first ascending and then descending. Find index of some given integer in that array. Ex. 2,4,6,8,7,5,4,3. Input: 4. Output: 2, 7. Write code on paper.</p>
+<p>2. Two sorted arrays are given. Find median when both arrays are merged and sorted. Write pseudo code on paper. Take care of boundary conditions.</p>
+<p><strong>Round 3:</strong><br>
+Basic OS, DB concepts. </p>
+<p>1. You are given some integers. Propose a data structure to implement &#8220;add&#8221;, &#8220;delete&#8221;, &#8220;fetch&#8221; and &#8220;fetch any&#8221; operations. All four operations must complete in constant time.</p>
+<p>2. There is a B-tree with two type of nodes A and B. Return nth A or nth B while doing inorder traversal in O(1) time. And write pseudo code on paper.</p>
+<p><strong>Round 4 with manager:</strong><br>
+There is very huge text file consisting several rows and columns of integers. Memory available is not sufficient to store whole text file. One column can be stored in memory. Sort whole file corresponding to given column keeping all rows unchanged. You cannot make new text file. Write neat code on paper.</p>
+<p><strong>Solution:</strong><br>
+<strong>Round 1:</strong><br>
+1. Make min heap of first 100 elements. For each remaining elements, if it is greater than root (min) node then remove root node, add that element then heapify. Time = 1 billion * log(100)</p>
+<p>2. Simple. For i = 0 to N-1, A[A[i]%N] += N. Return i with max A[i]. O(n) time. </p>
+<p><strong>Round 2:</strong><br>
+1. Find pivot point. O(log n) Binary search in both left and right arrays. O(log n)</p>
+<p>2. Compare median of both arrays. Accordingly select right half or left half array. Repeat. O(log n)</p>
+<p><strong>Round 3:</strong><br>
+1. Make a hash table and a linked list. When you add an element add it in both hash table and linked list. But in hash table along value caralso store pointer to the same value in linked list. To delete an element find it in hash table, use stored pointer to delete the same element from linked list also. For fetch any operation return head node of linked list. Memory = 2*N</p>
+<p>2. Preprocess in O(n) time: Make two vectors for A and B. Traverse in-order. When you get A add its pointer in vector of A. Same for B. </p>
+<p><strong>Round 4:</strong><br>
+Read whole column. Heap sort (saves memory). Now you know old indices and new indices. Shift entire rows from old index to new index. Keep one row in temp storage to avoid overwriting.</p>
+<p><strong>Some tips that may help you:</strong><br>
+1. Always be confident for whatever you are saying.<br>
+2. Listen carefully. Ask doubts until the question is perfectly clear to you.<br>
+3. Think out loud. Start with obvious approach and then improve upon it.<br>
+4. They will test your way of approach, thinking process. Don&#8217;t give up. Interviewer may give you hint if you are stuck.<br>
+5. Direct them to ask you about your strong topics.</p>
+<p>Many Many congratulations to the author. If you like GeeksforGeeks and would like to contribute, you can also write an article and mail your article to contribute@geeksforgeeks.org. See your article appearing on the GeeksforGeeks main page and help other Geeks.</p>
+		
+&#160;
+&#160;
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Big Rectangle Blog Bottom -->
+<ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-9465609616171866" data-ad-slot="4061219431"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+
+
+&#160;
+&#160;
+&#160;
+<h3>Related Topics:</h3><ul><li><a href="http://www.geeksforgeeks.org/goldman-sachs-interview-experience-set-5/" title="Goldman Sachs Interview Experience | Set 5">Goldman Sachs Interview Experience | Set 5</a></li><li><a href="http://www.geeksforgeeks.org/makemytrip-interview-experience-set-4/" title="MakeMyTrip Interview Experience | Set 4">MakeMyTrip Interview Experience | Set 4</a></li><li><a href="http://www.geeksforgeeks.org/amazon-interview-experience-set-152/" title="Amazon Interview Experience | Set 152">Amazon Interview Experience | Set 152</a></li><li><a href="http://www.geeksforgeeks.org/amazon-interview-experience-set-151-sde/" title="Amazon Interview Experience | Set 151 (For SDE)">Amazon Interview Experience | Set 151 (For SDE)</a></li><li><a href="http://www.geeksforgeeks.org/amazon-interview-experience-set-150-sde1-1-year-experienced/" title="Amazon Interview Experience | Set 150 (SDE1 for 1 Year Experienced)">Amazon Interview Experience | Set 150 (SDE1 for 1 Year Experienced)</a></li><li><a href="http://www.geeksforgeeks.org/amazon-interview-experience-set-149-campus-internship/" title="Amazon Interview Experience | Set 149 (On-Campus for Internship)">Amazon Interview Experience | Set 149 (On-Campus for Internship)</a></li><li><a href="http://www.geeksforgeeks.org/amazon-interview-experience-set-148/" title="Amazon Interview Experience | Set 148">Amazon Interview Experience | Set 148</a></li><li><a href="http://www.geeksforgeeks.org/amazon-interview-questions-set-147/" title="Amazon Interview Questions | Set 147">Amazon Interview Questions | Set 147</a></li></ul>
+<p>Tags: <a href="http://www.geeksforgeeks.org/tag/amazon/" rel="tag">Amazon</a>, <a href="http://www.geeksforgeeks.org/tag/interview-experience/" rel="tag">Interview Experience</a></p> 
+<div>
+<iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.geeksforgeeks.org%2Famazon-interview-set-58-campus-software-development-engineer%2F&amp;layout=button_count&amp;show_faces=false&amp;width=90&amp;action=like&amp;colorscheme=light" scrolling="no" frameborder="0" allowtransparency="true" style="border:none; overflow:hidden; width:90px; height:20px"></iframe>
+<a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.geeksforgeeks.org/amazon-interview-set-58-campus-software-development-engineer/" data-text="Amazon Interview | Set 58 (On-campus for Software Development Engineer)" data-count="horizontal" data-via="jakerutter">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+<plusone size="medium" href="http://www.geeksforgeeks.org/amazon-interview-set-58-campus-software-development-engineer/"></plusone>
+<!-- Place this render call where appropriate -->
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script></div>
+
+
+
+
+
+				</div>		  
+			

@@ -1,0 +1,91 @@
+<div class="post-content" id="post-content">
+					<p>The first round was an online test hosted on Interviewstreet.com. Around 350 students appeared in the online test.<span id="more-128168"></span> The duration was 90 minutes. It consisted of 20 MCQs based primarily on Predicting The Output, OS, CN and Data Structures.</p>
+<p>These questions were pretty basic and easily solvable.</p>
+<p>Apart from that, there were 2 coding questions.</p>
+<p>1. Given a string, find the first element which is non -repetitive  i.e that element must not be present anywhere else in the string.
+</p><pre>  
+          Eg : Input : teeterson      
+               Output : r, as it is the first element which 
+                        is non repetitive. </pre>
+<p>2.  Given a string of digits,find the next smallest number using the same digits.If its not possible to  get such a number print -1;
+</p><pre>     
+        Eg : Input : "123"  Output : "132"
+             Input : "12453" Output : "123534"
+             Input : "987"     Output :  "-1" </pre>
+<p>After a week, the results came out and 25 students were shortlisted.</p>
+<p><strong>Personal Interviews: </strong></p>
+<p><strong>Technical Interview 1 :</strong></p>
+<p>1. Given an array of 1s followed by 0s,find the number of 0s.
+</p><pre>  
+     Eg : Input : 111100    Output =2
+          Input : 1         Output =0 </pre>
+<p>I solved it by using Binary Search to find the first and last occurrence of 0 in the array and subtracting the results.</p>
+<p>2. Given an array of positive and negative numbers, find the pair of elements whose sum is closest to 0.
+</p><pre>   
+     Eg : Input :  3 5 -9 -4 17 11       
+          Output  3 , -4  </pre>
+<p>The brute force solution would be O(n^2) by comparing each pair of elements.As expected, he asked me to optimize my solution.<br>
+So I sorted the array using merge sort. (I know its not in-place but it did not strike me at the time)<br>
+Then used two indexes at the beginning and end of the the array and incremented/decremented the indexes as needed.</p>
+<p>3. Given a Binary Tree , print all the root to leaf paths.</p>
+<p>I started by telling him my approach and the logic behind the recursive solution that I had in mind. Then he asked me to write test cases for the function that I had written.</p>
+<p>6 students were selected after this round.</p>
+<p><strong>Technical Interview 2</strong></p>
+<p>1. Given a binary tree convert it to a double linked list.</p>
+<p>2. Given an array of integers , replace each element with the product of the remaining elements.
+</p><pre>
+  Eg : Input - 1 2 3 4     
+       Output : 24 12 8 6 </pre>
+<p>First, i gave the obvious solution. I  computed the product of the whole array and then divided it by each element to get the resultant array.</p>
+<p>But he asked me to do it without using the division operation. After some cross questioning I gave the following solution.<br>
+Store the product of the left side elements for each integer in an array L[].</p>
+<pre>
+For eg : Here , L[]= {1 , 1 , 2 , 6 }
+
+Do the same for the right side elements.
+
+Here R[] = { 24 , 12 , 4 , 1} 
+
+The multiply R[i] and L[i]  to get the resultant array.
+Complexity : O(n) </pre>
+<p>Finally 2 people were selected.<br>
+Result: Selected for a 6 month long internship as SDE-T (Testing)</p>
+<p>GeeksForGeeks has been instrumental in my preparation for the interviews and I am really glad that I discovered this website at the right time.</p>
+<p>PS : Could you guys tell me if the SDE-T position is inferior to the SDE-1 position or are they of the same level?</p>
+<p>If you like GeeksforGeeks and would like to contribute, you can also write an article and mail your article to contribute@geeksforgeeks.org. See your article appearing on the GeeksforGeeks main page and help other Geeks.</p>
+		
+&#160;
+&#160;
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Big Rectangle Blog Bottom -->
+<ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-9465609616171866" data-ad-slot="4061219431"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+
+
+&#160;
+&#160;
+&#160;
+<h3>Related Topics:</h3><ul><li><a href="http://www.geeksforgeeks.org/interview-experience-polycom/" title="My Interview Experience at Polycom">My Interview Experience at Polycom</a></li><li><a href="http://www.geeksforgeeks.org/athena-health-interview-experience-set-2/" title="Athena Health Interview Experience | Set 2">Athena Health Interview Experience | Set 2</a></li><li><a href="http://www.geeksforgeeks.org/amazon-interview-experience-set-160-sde-2/" title="Amazon Interview Experience | Set 160 (For SDE 2)">Amazon Interview Experience | Set 160 (For SDE 2)</a></li><li><a href="http://www.geeksforgeeks.org/maq-software-interview-experience-set-3/" title="MAQ Software Interview Experience | Set 3">MAQ Software Interview Experience | Set 3</a></li><li><a href="http://www.geeksforgeeks.org/uhgunited-health-group-interview-experience/" title="UHG(United Health Group) Interview Experience">UHG(United Health Group) Interview Experience</a></li><li><a href="http://www.geeksforgeeks.org/brocade-interview-experience/" title="Brocade Interview Experience">Brocade Interview Experience</a></li><li><a href="http://www.geeksforgeeks.org/housing-com-interview-experience-set-2/" title="Housing.com Interview Experience | Set 2">Housing.com Interview Experience | Set 2</a></li><li><a href="http://www.geeksforgeeks.org/citrix-rd-interview-experience-set-3-campus/" title="Citrix R&amp;D Interview Experience | Set 3 (On-Campus)">Citrix R&amp;D Interview Experience | Set 3 (On-Campus)</a></li></ul>
+<p>Tags: <a href="http://www.geeksforgeeks.org/tag/amazon/" rel="tag">Amazon</a>, <a href="http://www.geeksforgeeks.org/tag/interview-experience/" rel="tag">Interview Experience</a></p> 
+<div>
+<iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.geeksforgeeks.org%2Famazon-interview-set-78-fresher-internship%2F&amp;layout=button_count&amp;show_faces=false&amp;width=90&amp;action=like&amp;colorscheme=light" scrolling="no" frameborder="0" allowtransparency="true" style="border:none; overflow:hidden; width:90px; height:20px"></iframe>
+<a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.geeksforgeeks.org/amazon-interview-set-78-fresher-internship/" data-text="Amazon Interview | Set 78" data-count="horizontal" data-via="jakerutter">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+<plusone size="medium" href="http://www.geeksforgeeks.org/amazon-interview-set-78-fresher-internship/"></plusone>
+<!-- Place this render call where appropriate -->
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script></div>
+
+
+
+
+
+				</div>		  
+			
