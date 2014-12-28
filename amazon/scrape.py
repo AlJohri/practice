@@ -1,4 +1,4 @@
-import requests, lxml.html, re, csv
+import requests, lxml.html, re, csv, datetime
 from dateutil.parser import parse
 
 posts = []
@@ -14,20 +14,24 @@ for i in range(12, 0, -1):
         title = item.cssselect('.post-title a')[0].text.replace("Amazon interview Experience", "").replace("Amazon Interview Experience", "").replace("Amazon Interview Questions", "").replace("Amazon Interview", "").replace(" | ", "").strip()
         url = item.cssselect('.post-title a')[0].get('href')
         title_url = "[%s](%s)" % (title, url)
-        date = item.cssselect('.post-date')[0].text
+        
         try:
-            pydate = parse(date)
+            date = parse(item.cssselect('.post-date')[0].text)
+            datestr = date.strftime("%-m-%-d-%Y")
         except:
-            pass
+            date = None
+            datestr = ""
+
         matches = re.findall(regex, title)
         if matches:
-            posts.append(("set" + str(matches[0]).zfill(3), title_url, date, pydate))
+            posts.append(("set" + str(matches[0]).zfill(3), title_url, datestr, date))
         else:
-            posts.append(("other" + str(other_counter).zfill(3), title_url, date, pydate))
+            posts.append(("other" + str(other_counter).zfill(3), title_url, datestr, date))
             other_counter += 1
         print(posts[-1])
 
-posts = sorted(posts, key=lambda x: x[3], reverse=True)
+mindate = datetime.datetime(datetime.MINYEAR, 1, 1)
+posts = sorted(posts, key=lambda x: x[3] or mindate, reverse=True)
 
 f = open("posts.csv", "w")
 writer = csv.writer(f)
