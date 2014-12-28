@@ -29,7 +29,7 @@ This is my attempt at completing the problems in Cracking the Coding Interview 5
 ./debug ctci/chapter13.cpp
 
 # java debug not implemented yet
-# ./debug chapter14.java
+# ./debug ctci/chapter14.java
 ```
 
 # HackerRank
@@ -38,4 +38,5 @@ This is my attempt at completing the problems in Cracking the Coding Interview 5
 
 ```
 cat hackerrank/finddigits.txt | ./run hackerrank/finddigits.cpp
+cat hackerrank/isfibo.txt | ./run hackerrank/isfibo.cpp
 ```
