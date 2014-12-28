@@ -33,6 +33,7 @@ template<class T>
 class BinaryTree {
 	public:
 		BinaryTree() : root(NULL) {};
+		BinaryTree(Node<T>* myroot) : root(myroot) {};
 		~BinaryTree() {};
 
 		void insert(T key);
@@ -41,7 +42,9 @@ class BinaryTree {
 		int maxDepth();
 		bool isBalanced();
 		bool isBalanced2();
-		void printTree();
+		void inOrder();
+		void preOrder();
+		void postOrder();
 		bool search(Node<T>* a, Node<T>* b);
 		Node<T>* getRoot() { return this->root; }
 		Node<T>* getMin() {
@@ -64,7 +67,9 @@ class BinaryTree {
 		Node<T> *search(T key, Node<T>* leaf);
 		int maxDepth(Node<T>* leaf);
 		int checkDepth(Node<T>* n);
-		void printTree(Node<T>* leaf);
+		void inOrder(Node<T>* leaf);
+		void preOrder(Node<T>* leaf);
+		void postOrder(Node<T>* leaf);
 		bool isBalanced(Node<T>* leaf);
 		bool isBalanced2(Node<T>* leaf);
 
@@ -149,19 +154,36 @@ void BinaryTree<T>::visulizeTree() {
 	return;
 }
 
-// in order
 template<class T>
-void BinaryTree<T>::printTree(Node<T>* n) {
-	if (n->left) printTree(n->left);
+void BinaryTree<T>::inOrder(Node<T>* n) {
+	if (n->left) inOrder(n->left);
 	cout << n->data << ' ';
-	if (n->right) printTree(n->right);
+	if (n->right) inOrder(n->right);
 }
 
 template<class T>
-void BinaryTree<T>::printTree() {
-	printTree(this->root);
-	return;
+void BinaryTree<T>::inOrder() { inOrder(this->root); return; }
+
+template<class T>
+void BinaryTree<T>::preOrder(Node<T>* n) {
+	cout << n->data << ' ';
+	if (n->left) preOrder(n->left);
+	if (n->right) preOrder(n->right);
 }
+
+template<class T>
+void BinaryTree<T>::preOrder() { preOrder(this->root); return; }
+
+template<class T>
+void BinaryTree<T>::postOrder(Node<T>* n) {
+	if (n->left) postOrder(n->left);
+	if (n->right) postOrder(n->right);
+	cout << n->data << ' ';
+}
+
+template<class T>
+void BinaryTree<T>::postOrder() { postOrder(this->root); return; }
+
 
 // 4.1 Implement a function to check if a binary tree is balanced. For the purposes of
 // this question, a balanced tree is defined to be a tree such that the heights of the
@@ -245,13 +267,51 @@ Node<T>* randomWalk(Node<T>* cur, int steps) {
 	return cur;
 }
 
+template<class T>
+int searchArray(T arr[], int size, T value) {
+	for (int i = 0; i < size; i++) {
+		if (arr[i] == value) {
+			return i;
+		}
+	}
+	return -1;
+}
+
+template<class T>
+Node<T>* buildTreePre(T in[], T pre[], int n) {
+	if (n == 0) return NULL;
+	Node<T>* tNode = new Node<T>(pre[0]);
+	int i = searchArray(in, n, tNode->data);
+	tNode->left = buildTreePre(in, pre+1, i);
+	tNode->right = buildTreePre(in+i+1, pre+i+1, n-i-1);
+	return tNode;
+}
+
+template<class T>
+Node<T>* buildTreePost(T in[], T post[], int n) {
+	if (n == 0) return NULL;
+	Node<T>* tNode = new Node<T>(post[n-1]);
+	int i = searchArray(in, n, tNode->data);
+	tNode->left = buildTreePost(in, post, i);
+	tNode->right = buildTreePost(in+i+1, post+i, n-i-1);
+	return tNode;
+}
+
+template<class T>
+void printPostOrder(T in[], T pre[], int n) {
+   int i = searchArray(in, n, pre[0]);
+   if (i != 0) printPostOrder(in, pre+1, i); // left
+   if (i != n-1) printPostOrder(in+i+1, pre+i+1, n-i-1); // right
+   cout << pre[0] << " ";
+}
+
 int main() {
 	BinaryTree<int>* bt = createRandomTree<int>(100);
-	bt->visulizeTree();
+	// bt->visulizeTree();
 	cout << bt->maxDepth() << endl;
 	cout << bt->isBalanced() << endl;
 	cout << bt->isBalanced2() << endl;
-	bt->printTree(); cout << endl;
+	bt->inOrder(); cout << endl;
 
 	Node<int>* btRoot = bt->getRoot();
 
@@ -269,6 +329,35 @@ int main() {
 	cout << "path from c to d: " << bt->search(c, d) << endl;
 	cout << endl;
 
+	char in[] = {'D', 'B', 'E', 'A', 'F', 'C'};
+	char pre[] = {'A', 'B', 'D', 'E', 'C', 'F'};
+	char post[] = {'D', 'E', 'B', 'F', 'C', 'A'};
+	int len = sizeof(in)/sizeof(in[0]);
+	cout << "in: " << in << endl;
+	cout << "pre: " << pre << endl;
+	cout << "post: " << post << endl;
+	cout << endl;
+
+	Node<char>* preRoot = buildTreePre<char>(in, pre, len);
+	BinaryTree<char>* preTree = new BinaryTree<char>(preRoot);
+	preTree->inOrder(); cout << endl;
+	preTree->preOrder(); cout << endl;
+	preTree->postOrder(); cout << endl;
+	cout << endl;
+
+	Node<char>* postRoot = buildTreePost<char>(in, post, len);
+	BinaryTree<char>* postTree = new BinaryTree<char>(postRoot);
+	postTree->inOrder(); cout << endl;
+	postTree->preOrder(); cout << endl;
+	postTree->postOrder(); cout << endl;
+	cout << endl;
+
+	printPostOrder(in, pre, len);
+	cout << endl;
+
+	// another example if needed
+	// preorder = {7,10,4,3,1,2,8,11}
+	// inorder = {4,10,3,1,7,11,8,2}
 
 	bt->destroy_tree();
 }

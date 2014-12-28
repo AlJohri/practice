@@ -7,7 +7,7 @@ fi
 
 if [[ $1 == *"cpp"* ]]; then
 	rm -f a.out
-	g++ $1 && gdb a.out
+	g++ -g $1 && gdb a.out
 	rm -f a.out
 elif [[ $1 == *"java"* ]]; then
 	echo "not implemented"
