@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+if [ -z "$1" ]; then
+    printf "no filename provided\nexample usage: \n\t./run chapter1.cpp\n"
+    exit 1
+fi
+
+if [[ $1 == *"cpp"* ]]; then
+	rm -f a.out
+	g++ $1 && gdb a.out
+	rm -f a.out
+elif [[ $1 == *"java"* ]]; then
+	echo "not implemented"
+	# rm -f "${1%%.*}".class
+	# javac $1 && java "${1%%.*}"
+	# rm -f "${1%%.*}".class
+elif [[ $1 == *"py"* ]]; then
+	python -m pdb $1
+fi
