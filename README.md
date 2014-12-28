@@ -31,3 +31,11 @@ This is my attempt at completing the problems in Cracking the Coding Interview 5
 # java debug not implemented yet
 # ./debug chapter14.java
 ```
+
+# HackerRank
+
+## Example Usage
+
+```
+cat hackerrank/finddigits.txt | ./run hackerrank/finddigits.cpp
+```
