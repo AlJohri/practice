@@ -17,21 +17,6 @@ This is my attempt at completing the problems in Cracking the Coding Interview 5
 ./run ctci/chapter14.java
 ```
 
-## Example Usage (Debug)
-```
-./debug ctci/chapter01.cpp
-./debug ctci/chapter01.cpp
-./debug ctci/chapter02.cpp
-./debug ctci/chapter03.cpp
-./debug ctci/chapter04.cpp
-./debug ctci/chapter05.cpp
-./debug ctci/chapter09.py
-./debug ctci/chapter13.cpp
-
-# java debug not implemented yet
-# ./debug ctci/chapter14.java
-```
-
 # HackerRank
 
 ## Example Usage
