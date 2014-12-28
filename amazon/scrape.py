@@ -11,7 +11,8 @@ for i in range(12, 0, -1):
     doc = lxml.html.fromstring(response.content)
     # post-date
     for item in doc.cssselect(".post-info"):
-        title = item.cssselect('.post-title a')[0].text.replace("Amazon interview Experience", "").replace("Amazon Interview Experience", "").replace("Amazon Interview Questions", "").replace("Amazon Interview", "").replace(" | ", "").strip()
+        title = item.cssselect('.post-title a')[0].text.replace("Amazon interview Experience", "").replace("Amazon Interview Experience", "").replace("Amazon Interview Questions", "").replace("Amazon Interview", "").replace("[TopTalent.in] ", "").replace(" | ", "").strip()
+        title = (title[:70] + '..') if len(title) > 70 else title
         url = item.cssselect('.post-title a')[0].get('href')
         title_url = "[%s](%s)" % (title, url)
         
