@@ -13,6 +13,6 @@ elif [[ $1 == *"java"* ]]; then
 	rm -f "${1%%.*}".class
 	javac $1 && java "${1%%.*}"
 	rm -f "${1%%.*}".class
-elif [[ $1 == *"python"* ]]; then
+elif [[ $1 == *"py"* ]]; then
 	python $1
 fi
