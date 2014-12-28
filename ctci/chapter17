@@ -1,5 +1,11 @@
 17.1 Write a function to swap a number in place (that is, without temporary variables)
 
+void (int &x, in &y) {
+	x = x ^ y;
+	y = x ^ y;
+	x = x ^ y;
+}
+
 17.2 Design an algorithm to figure out if someone has won a game of tic-tac-toe.
 
 17.3 Write an algorithm which computes the number of trailing zeros in n factorial.
