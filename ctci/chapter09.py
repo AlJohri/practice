@@ -125,13 +125,16 @@ print "[1,2,3,4]", powerset([1,2,3,4])
 
 from itertools import permutations
 
-def get_perms(str):
+def getPerms(str):
 	return ["".join(x) for x in list(permutations(str, len(str)))]
 
-print "hello", get_perms("hello")
+print "hello", getPerms("hello")
 
 # 9.6 Implement an algorithm to print all valid (i.e., properly opened and closed) combinations
 # of n-pairs of parentheses.
+
+def validParens(str):
+	pass
 
 # 9.7 Implement the "paint fill" function that one might see on many image editing
 # programs. That is, given a screen (represented by a two-dimensional array of colors),
