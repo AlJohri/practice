@@ -36,7 +36,7 @@ def possiblePaths2(finalX, finalY, curPos=[0,0]):
 	# print curPos
 	if (curPos[0] > finalX) or (curPos[1] > finalY): return 0
 	elif curPos == [finalX, finalY]: return 1
-	else: 
+	else:
 		return possiblePaths2(finalX, finalY, [curPos[0]+1, curPos[1]]) + possiblePaths2(finalX, finalY, [curPos[0], curPos[1]+1])
 
 print "possiblePaths"
@@ -119,7 +119,8 @@ from itertools import combinations
 def powerset(A):
 	return reduce(lambda x,y: x+y, [list(combinations(A, i)) for i in range(len(A)+1)], [])
 
-print "[1,2,3,4]", powerset([1,2,3,4])
+print "powerset([1,2,3,4])", powerset([1,2,3,4])
+print ""
 
 # 9.5 Write a method to compute all permutations of a string
 
@@ -128,7 +129,8 @@ from itertools import permutations
 def getPerms(str):
 	return ["".join(x) for x in list(permutations(str, len(str)))]
 
-print "hello", getPerms("hello")
+print "getPerms(hello)", getPerms("hello")
+print ""
 
 # 9.6 Implement an algorithm to print all valid (i.e., properly opened and closed) combinations
 # of n-pairs of parentheses.
@@ -144,6 +146,29 @@ def validParens(str):
 # 9.8 Given an infinite number of quarters (25 cents), dimes (10 cents), nickels (5 cents)
 # and pennies (1 cent), write code to calculate the number of ways of representing n
 # cents.
+
+# http://rosettacode.org/wiki/Count_the_coins#Simple_version
+# https://bitbucket.org/trebsirk/algorithms/src/c6d9df11e0be2695ab941418ba7660656f4c189e/coinchanging.py?at=master
+
+def numWaysToMakeChange(amount, coins=[1, 5, 10, 25]):
+    ways = [0] * (amount + 1)
+    ways[0] = 1
+    for coin in coins:
+        for j in xrange(coin, amount + 1):
+            ways[j] += ways[j - coin]
+            import pdb; pdb.set_trace()
+    print ways
+    return ways[amount]
+
+print "numWaysToMakeChange"
+print numWaysToMakeChange(5)
+print numWaysToMakeChange(6, [5, 10, 25])
+print numWaysToMakeChange(20)
+print numWaysToMakeChange(25)
+print numWaysToMakeChange(100)
+print ""
+
+
 
 # 9.9 Write an algorithm to prim all ways of arranging eight queens on an 8x8 chess
 # board so that none of them share the same row, column or diagonal. In this case,
