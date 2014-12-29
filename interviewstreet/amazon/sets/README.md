@@ -23,7 +23,7 @@ Ouput format :
 For each test case print one line ,  number of connected component it has.
  
 Sample Input :
- 
+```
 4
 4
 0 0 1 0
@@ -50,14 +50,14 @@ Sample Input :
 0 0 1 1 0 1 1 0
 1 0 1 1 0 1 1 0
 0 0 0 0 0 0 0 0
- 
+```
 Sample output :
- 
+```
 1
 3
 3
 9
- 
+```
 Constraint :
  
 0 < T < 6 

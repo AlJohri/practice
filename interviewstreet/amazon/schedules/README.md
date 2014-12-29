@@ -14,18 +14,21 @@ An event time slot is of the form [Start Time, End Time) which means the start t
 So, an event of the form 10 00  11 00 => implies that the meeting starts at 10:00 and ends at 11:00. Hence, another meeting can start at 11:00.
  
 Sample Input:
+```
 5 120
 16 00 17 00
 10 30 14 30
 20 45 22 15
 10 00 13 15
 09 00 11 00
- 
+```
 Sample Output:
+```
 00 00 09 00
 17 00 20 45
- 
+```
 Sample Input:
+```
 8 60
 08 00 10 15
 22 00 23 15
@@ -35,12 +38,13 @@ Sample Input:
 16 00 17 45
 12 00 13 30
 11 30 12 30
- 
+```
 Sample Output:
+```
 00 00 07 00
 13 30 16 00
 19 00 22 00
- 
+```
 Constraints :
 1 <= M <= 100
  

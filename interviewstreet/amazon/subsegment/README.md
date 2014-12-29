@@ -15,14 +15,18 @@ Print first shortest sub-segment that contains given k words , ignore special ch
 If no sub-segment is found it should return “NO SUBSEGMENT FOUND”
 
 Sample Input :
+```
 This is a test. This is a programming test. This is a programming test in any language.
 4
 this
 a
 test
 programming
+```
 Sample Output :
+```
 a programming test This
+```
 Explanation :
 In this test case segment "a programming test. This" contains given four words. You have to print without special characters, numbers so output is "a programming test This".  Another segment "This is a programming test." also contains given  four words but have more number of words. 
 
