@@ -159,10 +159,11 @@ def numWaysToMakeChange(amount, coins=[1, 5, 10, 25]):
     return ways[amount]
 
 print "numWaysToMakeChange(5): ", numWaysToMakeChange(5)
-print "numWaysToMakeChange(6, [5, 10, 25]): ", numWaysToMakeChange(6, [5, 10, 25])
+print "numWaysToMakeChange(6, [5,10,25]): ", numWaysToMakeChange(6, [5,10,25])
 print "numWaysToMakeChange(20): ", numWaysToMakeChange(20)
 print "numWaysToMakeChange(25): ", numWaysToMakeChange(25)
 print "numWaysToMakeChange(100): ", numWaysToMakeChange(100)
+print "numWaysToMakeChange(100, [1,5,10,25,50]): ", numWaysToMakeChange(100, [1,5,10,25,50])
 print ""
 
 
