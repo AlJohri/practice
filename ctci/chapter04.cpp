@@ -7,11 +7,9 @@
 
 using namespace std;
 
-template<class T>
-class BinaryTree;
+template<class T> class BinaryTree;
 
-template<class T>
-class Node {
+template<class T> class Node {
 	friend class BinaryTree<T>;
 	public:
 		Node* left;
@@ -26,11 +24,9 @@ class Node {
 		static int count;
 };
 
-template<class T>
-int Node<T>::count = 0;
+template<class T> int Node<T>::count = 0;
 
-template<class T>
-class BinaryTree {
+template<class T> class BinaryTree {
 	public:
 		BinaryTree() : root(NULL) {};
 		BinaryTree(Node<T>* myroot) : root(myroot) {};
@@ -129,8 +125,7 @@ class BinaryTree {
 		Node<T> *root;
 };
 
-template<class T>
-BinaryTree<T>* createRandomTree(int num) {
+template<class T> BinaryTree<T>* createRandomTree(int num) {
 	BinaryTree<T>* bt = new BinaryTree<T>();
 	srand(time(NULL));
 	for (int i = 0; i < num; ++i) {
@@ -140,8 +135,7 @@ BinaryTree<T>* createRandomTree(int num) {
 	return bt;
 }
 
-template<class T>
-void BinaryTree<T>::visulizeTree() {
+template<class T> void BinaryTree<T>::visulizeTree() {
 
 	stringstream ss1, ss2;
 
@@ -178,14 +172,12 @@ void BinaryTree<T>::visulizeTree() {
 // this question, a balanced tree is defined to be a tree such that the heights of the
 // two subtrees of any node never differ by more than one.
 
-template<class T>
-int BinaryTree<T>::maxDepth(Node<T>* n) {
+template<class T> int BinaryTree<T>::maxDepth(Node<T>* n) {
 	if (n == NULL) return 0;
 	return fmax(maxDepth(n->left), maxDepth(n->right)) + 1;
 }
 
-template<class T>
-int BinaryTree<T>::checkDepth(Node<T>* n) {
+template<class T> int BinaryTree<T>::checkDepth(Node<T>* n) {
 	if (n == NULL) return 0;
 
 	int lDepth = checkDepth(n->left);
@@ -198,8 +190,7 @@ int BinaryTree<T>::checkDepth(Node<T>* n) {
 	else return fmax(lDepth, rDepth) + 1;
 }
 
-template<class T>
-bool BinaryTree<T>::isBalanced(Node<T> * n) {
+template<class T> bool BinaryTree<T>::isBalanced(Node<T> * n) {
 	if (n != NULL) {
 		if (abs(maxDepth(n->left) - maxDepth(n->right)) > 1) return false;
 		else return isBalanced(n->left) && isBalanced(n->right);
@@ -207,8 +198,7 @@ bool BinaryTree<T>::isBalanced(Node<T> * n) {
 	return true;
 }
 
-template<class T>
-bool BinaryTree<T>::isBalanced2(Node<T> * n) {
+template<class T> bool BinaryTree<T>::isBalanced2(Node<T> * n) {
 	if (checkDepth(n) == -1) return false;
 	return true;
 }
@@ -216,8 +206,7 @@ bool BinaryTree<T>::isBalanced2(Node<T> * n) {
 // 4.2 Given a directed graph, design an algorithm to find out whether there is a route
 // between two nodes.
 
-template<class T>
-bool BinaryTree<T>::search(Node<T>* a, Node<T>* b) {
+template<class T> bool BinaryTree<T>::search(Node<T>* a, Node<T>* b) {
 	if (a == NULL || b == NULL) return false;
 	if (a->id == b->id) return true;
 	return search(a->left, b) || search(a->right, b);
@@ -241,16 +230,14 @@ Node<T>* randomWalk(Node<T>* cur, int steps) {
 	return cur;
 }
 
-template<class T>
-int searchArray(T arr[], int size, T value) {
+template<class T> int searchArray(T arr[], int size, T value) {
 	for (int i = 0; i < size; i++) {
 		if (arr[i] == value) return i;
 	}
 	return -1;
 }
 
-template<class T>
-Node<T>* buildTreePre(T in[], T pre[], int n) {
+template<class T> Node<T>* buildTreePre(T in[], T pre[], int n) {
 	if (n == 0) return NULL;
 	Node<T>* tNode = new Node<T>(pre[0]);
 	int i = searchArray(in, n, tNode->data);
@@ -259,8 +246,7 @@ Node<T>* buildTreePre(T in[], T pre[], int n) {
 	return tNode;
 }
 
-template<class T>
-Node<T>* buildTreePost(T in[], T post[], int n) {
+template<class T> Node<T>* buildTreePost(T in[], T post[], int n) {
 	if (n == 0) return NULL;
 	Node<T>* tNode = new Node<T>(post[n-1]);
 	int i = searchArray(in, n, tNode->data);
@@ -269,8 +255,7 @@ Node<T>* buildTreePost(T in[], T post[], int n) {
 	return tNode;
 }
 
-template<class T>
-void printPostOrder(T in[], T pre[], int n) {
+template<class T> void printPostOrder(T in[], T pre[], int n) {
    int i = searchArray(in, n, pre[0]);
    if (i != 0) printPostOrder(in, pre+1, i); // left
    if (i != n-1) printPostOrder(in+i+1, pre+i+1, n-i-1); // right

@@ -3,7 +3,7 @@
 using namespace std;
 
 // 1.1
-// Implement an algorithm to determine if a string has all unique 
+// Implement an algorithm to determine if a string has all unique
 // characters. What if you cannot use additional data structures?
 
 bool hasUniqueChars(string s) {
@@ -181,10 +181,10 @@ int main() {
 	cout << hasUniqueChars2(world) << endl;
 	cout << hasUniqueChars2(helloWorld) << endl;
 	cout << endl;
-	
+
 	char output[strlen(world)];
 	cout << world << endl;
-	reverse2(world, output);    
+	reverse2(world, output);
 	cout << output << endl;
 	cout << endl;
 

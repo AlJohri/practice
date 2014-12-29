@@ -2,8 +2,7 @@
 
 using namespace std;
 
-template<class T>
-class Node {
+template<class T> class Node {
 	public:
 		Node* next;
 		T data;
@@ -13,8 +12,7 @@ class Node {
 		~Node() {};
 };
 
-template <typename T>
-class Stack {
+template <typename T> class Stack {
 	public:
 		Node<T>* top;
 		void push(T item) {
@@ -32,8 +30,7 @@ class Stack {
 		~Stack() {};
 };
 
-template <typename T>
-class Queue {
+template <typename T> class Queue {
 	public:
 		Node<T>* first;
 		Node<T>* last;

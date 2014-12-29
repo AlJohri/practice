@@ -4,8 +4,7 @@
 
 using namespace std;
 
-template<class T>
-class Node {
+template<class T> class Node {
 	public:
 		Node* next;
 		T data;
@@ -16,14 +15,12 @@ class Node {
 		~Node() {};
 };
 
-template<class T>
-void appendItem(Node<T>*&head, Node<T>*&tail, Node<T>*cur) {
+template<class T> void appendItem(Node<T>*&head, Node<T>*&tail, Node<T>*cur) {
 	if (head == NULL) { head = cur; tail = cur; }
 	else { tail->next = cur; tail = cur; }
 }
 
-template<class T>
-void removeItem(Node<T>*& head, T item) {
+template<class T> void removeItem(Node<T>*& head, T item) {
 	Node<T>* cur = head;
 	if (head->data == item) {
 		head = head->next;
@@ -41,8 +38,7 @@ void removeItem(Node<T>*& head, T item) {
 	return;
 }
 
-template<class T>
-void removeNode(Node<T>*& head, Node<T>*& n) {
+template<class T> void removeNode(Node<T>*& head, Node<T>*& n) {
 	Node<T>* cur = head;
 	if (head == n) {
 		head = head->next;
@@ -65,8 +61,7 @@ void removeNode(Node<T>*& head, Node<T>*& n) {
 // FOLLOW UP
 // How would you solve this problem if a temporary buffer is not allowed?
 
-template<class T>
-void removeDuplicates(Node<T>* head) {
+template<class T> void removeDuplicates(Node<T>* head) {
 	unordered_map<T, bool> map;
 	map[head->data] = true;
 	Node<T>* cur = head;
@@ -85,8 +80,7 @@ void removeDuplicates(Node<T>* head) {
 }
 
 // no buffer
-template<class T>
-void removeDuplicates2(Node<T>* head) {
+template<class T> void removeDuplicates2(Node<T>* head) {
 	Node<T>* dupCheck = head;
 	Node<T>* cur = head;
 	Node<T>* prev;
@@ -103,8 +97,7 @@ void removeDuplicates2(Node<T>* head) {
 
 // 2.2 Implement an algorithm to find the kth to last element of a singly linked list.
 
-template<class T>
-T findKthElement(Node<T>* head, int k) {
+template<class T> T findKthElement(Node<T>* head, int k) {
 	Node<T>* cur = head;
 	Node<T>* prev = head;
 	for (int i = 0; i < k; i++) cur = cur->next;
@@ -118,8 +111,7 @@ T findKthElement(Node<T>* head, int k) {
 // Input: the node c from the linked list a->b->c->d->e
 // Result: nothing is returned, but the new linked list looks like a- >b- >d->e
 
-template<class T>
-void deleteNode(Node<T>*& n) {
+template<class T> void deleteNode(Node<T>*& n) {
 	Node<T>* nodeToDelete = n->next;
 	if (n == NULL || nodeToDelete == NULL) return;
 	n->data = nodeToDelete->data;
@@ -128,11 +120,10 @@ void deleteNode(Node<T>*& n) {
 	return;
 }
 
-// 2.4 Write code to partition a linked list around a value x, such that all nodes less 
+// 2.4 Write code to partition a linked list around a value x, such that all nodes less
 // than x come before all nodes greater than or equal to x.
 
-template<class T>
-void pivotList(Node<T>*&head, T pivot) {
+template<class T> void pivotList(Node<T>*&head, T pivot) {
 	Node<T>* headLeft = NULL; Node<T>* tailLeft = NULL;
 	Node<T>* headPivot = NULL; Node<T>* tailPivot = NULL;
 	Node<T>* headRight = NULL; Node<T>* tailRight = NULL;
@@ -187,8 +178,7 @@ Node<int>* addLists(Node<int>* l1, Node<int>* l2) {
 // 2.6 Given a circular linked list, implement an algorithm which returns the node at the
 // beginning of the loop.
 
-template<class T>
-Node<T>* findLoopStart(Node<T>* head) {
+template<class T> Node<T>* findLoopStart(Node<T>* head) {
 	Node<T>* slow = head;
 	Node<T>* fast = head;
 
@@ -213,8 +203,7 @@ Node<T>* findLoopStart(Node<T>* head) {
 
 // 2.7 Implement a function to check if a linked list is a palindrome
 
-template<class T>
-bool isPalindrome(Node<T>* head) {
+template<class T> bool isPalindrome(Node<T>* head) {
 	Node<T>* slow = head;
 	Node<T>* fast = head;
 	stack <char> reverse;
@@ -235,8 +224,7 @@ bool isPalindrome(Node<T>* head) {
 	return true;
 }
 
-template<class T>
-void printAll(Node<T>* head) {
+template<class T> void printAll(Node<T>* head) {
 	for (Node<T>* cur = head; cur != NULL; cur = cur->next) {
 		cout << cur->data << ' ';
 	}
