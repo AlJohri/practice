@@ -73,7 +73,7 @@ class BinaryTree {
 				if (leaf->right != NULL) destroy_tree(leaf->right);
 				delete leaf;
 			}
-			return;			
+			return;
 		};
 
 		void insert(T key, Node<T>* leaf) {
@@ -86,7 +86,7 @@ class BinaryTree {
 				else leaf->right = new Node<T>(key);
 			}
 		};
-		
+
 		void inOrder(Node<T>* n) {
 			if (n->left) inOrder(n->left);
 			cout << n->data << ' ';
@@ -96,7 +96,7 @@ class BinaryTree {
 		void preOrder(Node<T>* n) {
 			cout << n->data << ' ';
 			if (n->left) preOrder(n->left);
-			if (n->right) preOrder(n->right);			
+			if (n->right) preOrder(n->right);
 		}
 
 		void postOrder(Node<T>* n) {
@@ -112,7 +112,7 @@ class BinaryTree {
 			if(k--== 0) return leaf;
 			return kthSmallest(leaf->right, k);
 		}
- 
+
 		Node<T>* kthLargest(Node<T>* leaf, int &k) {
 			if (leaf == NULL) return NULL;
 			Node<T>* tmp = kthLargest(leaf->right, k);
