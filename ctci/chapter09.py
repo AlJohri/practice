@@ -156,8 +156,6 @@ def numWaysToMakeChange(amount, coins=[1, 5, 10, 25]):
     for coin in coins:
         for j in xrange(coin, amount + 1):
             ways[j] += ways[j - coin]
-            import pdb; pdb.set_trace()
-    print ways
     return ways[amount]
 
 print "numWaysToMakeChange"
