@@ -35,18 +35,18 @@ class BinaryTree {
 		BinaryTree() : root(NULL) {};
 		BinaryTree(Node<T>* myroot) : root(myroot) {};
 		~BinaryTree() {};
-
-		void insert(T key);
-		Node<T> *search(T key);
-		void destroy_tree();
-		int maxDepth();
-		bool isBalanced();
-		bool isBalanced2();
-		void inOrder();
-		void preOrder();
-		void postOrder();
-		bool search(Node<T>* a, Node<T>* b);
+		void insert(T key) {
+			if (this->root != NULL) insert(key, this->root);
+			else this->root = new Node<T>(key);
+		}
 		Node<T>* getRoot() { return this->root; }
+		void destroy_tree() { destroy_tree(this->root); }
+		void inOrder() { inOrder(this->root); return; }
+		void preOrder() { preOrder(this->root); return; }
+		void postOrder() { postOrder(this->root); return; }
+		Node<T>* kthSmallest(int k) { return kthSmallest(this->root, k); }
+		Node<T>* kthLargest(int k) { return kthLargest(this->root, k); }
+
 		Node<T>* getMin() {
 			if (this->root == NULL) return NULL;
 			Node<T>* cur = this->root;
@@ -60,54 +60,74 @@ class BinaryTree {
 			return cur;
 		}
 
+
+		bool search(Node<T>* a, Node<T>* b);
+		int maxDepth() { return maxDepth(this->root); }
+		bool isBalanced() { return isBalanced(this->root); }
+		bool isBalanced2() { return isBalanced2(this->root); }
 		void visulizeTree();
 	private:
-		void destroy_tree(Node<T>* leaf);
-		void insert(T key, Node<T>* leaf);
-		Node<T> *search(T key, Node<T>* leaf);
+		void destroy_tree(Node<T>* leaf) {
+			if (leaf != NULL) {
+				if (leaf->left != NULL) destroy_tree(leaf->left);
+				if (leaf->right != NULL) destroy_tree(leaf->right);
+				delete leaf;
+			}
+			return;			
+		};
+
+		void insert(T key, Node<T>* leaf) {
+			if (key < leaf->data) {
+				if (leaf->left != NULL) insert(key, leaf->left);
+				else leaf->left = new Node<T>(key);
+			}
+			else {
+				if (leaf->right != NULL) insert(key, leaf->right);
+				else leaf->right = new Node<T>(key);
+			}
+		};
+		
+		void inOrder(Node<T>* n) {
+			if (n->left) inOrder(n->left);
+			cout << n->data << ' ';
+			if (n->right) inOrder(n->right);
+		}
+
+		void preOrder(Node<T>* n) {
+			cout << n->data << ' ';
+			if (n->left) preOrder(n->left);
+			if (n->right) preOrder(n->right);			
+		}
+
+		void postOrder(Node<T>* n) {
+			if (n->left) postOrder(n->left);
+			if (n->right) postOrder(n->right);
+			cout << n->data << ' ';
+		}
+
+		Node<T>* kthSmallest(Node<T>* leaf, int &k) {
+			if (leaf == NULL) return NULL;
+			Node<T>* tmp = kthSmallest(leaf->left, k);
+			if (tmp != NULL) return tmp;
+			if(k--== 0) return leaf;
+			return kthSmallest(leaf->right, k);
+		}
+ 
+		Node<T>* kthLargest(Node<T>* leaf, int &k) {
+			if (leaf == NULL) return NULL;
+			Node<T>* tmp = kthLargest(leaf->right, k);
+			if (tmp != NULL) return tmp;
+			if(k--== 0) return leaf;
+			return kthLargest(leaf->left, k);
+		}
+
 		int maxDepth(Node<T>* leaf);
 		int checkDepth(Node<T>* n);
-		void inOrder(Node<T>* leaf);
-		void preOrder(Node<T>* leaf);
-		void postOrder(Node<T>* leaf);
 		bool isBalanced(Node<T>* leaf);
 		bool isBalanced2(Node<T>* leaf);
 
 		Node<T> *root;
 };
-
-template<class T>
-void BinaryTree<T>::insert(T key, Node<T>* leaf) {
-	if (key < leaf->data) {
-		if (leaf->left != NULL) insert(key, leaf->left);
-		else leaf->left = new Node<T>(key);
-	}
-	else {
-		if (leaf->right != NULL) insert(key, leaf->right);
-		else leaf->right = new Node<T>(key);
-	}
-}
-
-template<class T>
-void BinaryTree<T>::destroy_tree(Node<T>* leaf) {
-	if (leaf != NULL) {
-		if (leaf->left != NULL) destroy_tree(leaf->left);
-		if (leaf->right != NULL) destroy_tree(leaf->right);
-		delete leaf;
-	}
-	return;
-}
-
-template<class T>
-void BinaryTree<T>::insert(T key) {
-	if (this->root != NULL) insert(key, this->root);
-	else this->root = new Node<T>(key);
-}
-
-template<class T>
-void BinaryTree<T>::destroy_tree() {
-	destroy_tree(this->root);
-}
 
 template<class T>
 BinaryTree<T>* createRandomTree(int num) {
@@ -154,37 +174,6 @@ void BinaryTree<T>::visulizeTree() {
 	return;
 }
 
-template<class T>
-void BinaryTree<T>::inOrder(Node<T>* n) {
-	if (n->left) inOrder(n->left);
-	cout << n->data << ' ';
-	if (n->right) inOrder(n->right);
-}
-
-template<class T>
-void BinaryTree<T>::inOrder() { inOrder(this->root); return; }
-
-template<class T>
-void BinaryTree<T>::preOrder(Node<T>* n) {
-	cout << n->data << ' ';
-	if (n->left) preOrder(n->left);
-	if (n->right) preOrder(n->right);
-}
-
-template<class T>
-void BinaryTree<T>::preOrder() { preOrder(this->root); return; }
-
-template<class T>
-void BinaryTree<T>::postOrder(Node<T>* n) {
-	if (n->left) postOrder(n->left);
-	if (n->right) postOrder(n->right);
-	cout << n->data << ' ';
-}
-
-template<class T>
-void BinaryTree<T>::postOrder() { postOrder(this->root); return; }
-
-
 // 4.1 Implement a function to check if a binary tree is balanced. For the purposes of
 // this question, a balanced tree is defined to be a tree such that the heights of the
 // two subtrees of any node never differ by more than one.
@@ -210,11 +199,6 @@ int BinaryTree<T>::checkDepth(Node<T>* n) {
 }
 
 template<class T>
-int BinaryTree<T>::maxDepth() {
-	return maxDepth(this->root);
-}
-
-template<class T>
 bool BinaryTree<T>::isBalanced(Node<T> * n) {
 	if (n != NULL) {
 		if (abs(maxDepth(n->left) - maxDepth(n->right)) > 1) return false;
@@ -224,19 +208,9 @@ bool BinaryTree<T>::isBalanced(Node<T> * n) {
 }
 
 template<class T>
-bool BinaryTree<T>::isBalanced() {
-	return isBalanced(this->root);
-}
-
-template<class T>
 bool BinaryTree<T>::isBalanced2(Node<T> * n) {
 	if (checkDepth(n) == -1) return false;
 	return true;
-}
-
-template<class T>
-bool BinaryTree<T>::isBalanced2() {
-	return isBalanced2(this->root);
 }
 
 // 4.2 Given a directed graph, design an algorithm to find out whether there is a route
@@ -270,9 +244,7 @@ Node<T>* randomWalk(Node<T>* cur, int steps) {
 template<class T>
 int searchArray(T arr[], int size, T value) {
 	for (int i = 0; i < size; i++) {
-		if (arr[i] == value) {
-			return i;
-		}
+		if (arr[i] == value) return i;
 	}
 	return -1;
 }
@@ -307,11 +279,21 @@ void printPostOrder(T in[], T pre[], int n) {
 
 int main() {
 	BinaryTree<int>* bt = createRandomTree<int>(100);
+	cout << "maxDepth: " << bt->maxDepth() << endl;
+	cout << "isBalanced: " << bt->isBalanced() << endl;
+	cout << "isBalanced2: " << bt->isBalanced2() << endl;
+	cout << "inOrder: "; bt->inOrder(); cout << endl;
+	cout << endl;
+
 	// bt->visulizeTree();
-	cout << bt->maxDepth() << endl;
-	cout << bt->isBalanced() << endl;
-	cout << bt->isBalanced2() << endl;
-	bt->inOrder(); cout << endl;
+
+	cout << "kthSmallest(0): " << bt->kthSmallest(0)->data << endl;
+	cout << "kthSmallest(1): " << bt->kthSmallest(1)->data << endl;
+	cout << "kthSmallest(2): " << bt->kthSmallest(2)->data << endl;
+
+	cout << "kthLargest(0): " << bt->kthLargest(0)->data << endl;
+	cout << "kthLargest(1): " << bt->kthLargest(1)->data << endl;
+	cout << "kthLargest(2): " << bt->kthLargest(2)->data << endl;
 
 	Node<int>* btRoot = bt->getRoot();
 
