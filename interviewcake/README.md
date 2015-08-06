@@ -1,6 +1,7 @@
 # Interview Cake
 
 https://www.interviewcake.com/all-questions
+https://github.com/JeuelyFish/InterviewCake-Questions-Solutions
 
 | #  | Name                                     | URL                                                                                 |
 |----|------------------------------------------|-------------------------------------------------------------------------------------|
