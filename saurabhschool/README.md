@@ -1,3 +1,14 @@
+# saurabhschool
+
+https://www.youtube.com/playlist?list=PLD629C50E1A85BF84
+
+## Download All Videos
+```
+youtube-dl  -o "%(autonumber)s-%(title)s.%(ext)s" PLD629C50E1A85BF84
+```
+
+## List
+
 |Video|
 |-------------------------------------------------------------------------------------------------------------|
 |00001 - Introduction to Linked List (Part 1) Data Structure|
