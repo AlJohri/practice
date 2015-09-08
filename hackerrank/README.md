@@ -1,4 +1,4 @@
-# HackerRank
+# ![alt](https://d3keuzeb2crhkn.cloudfront.net/hackerrank/assets/brand/typemark_60x200.png)
 
 ## Example Usage
 

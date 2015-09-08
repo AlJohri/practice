@@ -1,5 +1,4 @@
-
-![alt](https://codility.com/static/nux-img/logo.jpg)
+# ![alt](https://codility.com/static/nux-img/logo.jpg)
 
 - Lesson 1 - Time Complexity - https://codility.com/programmers/lessons/1
 	- Reading Material - https://codility.com/media/train/1-TimeComplexity.pdf
