@@ -5,12 +5,12 @@ This is my attempt at completing the problems in Cracking the Coding Interview 5
 ## Example Usage
 
 ```
-./run ctci/chapter01.cpp
-./run ctci/chapter02.cpp
-./run ctci/chapter03.cpp
-./run ctci/chapter04.cpp
-./run ctci/chapter05.cpp
-./run ctci/chapter09.py
-./run ctci/chapter13.cpp
-./run ctci/chapter14.java
+./run ctci5/chapter01.cpp
+./run ctci5/chapter02.cpp
+./run ctci5/chapter03.cpp
+./run ctci5/chapter04.cpp
+./run ctci5/chapter05.cpp
+./run ctci5/chapter09.py
+./run ctci5/chapter13.cpp
+./run ctci5/chapter14.java
 ```
