@@ -5,7 +5,7 @@ Your goal is to find that missing element.
 
 Write a function:
 
-int solution(int A[], int N);
+def solution(A)
 
 that, given a zero-indexed array A, returns the value of the missing element.
 

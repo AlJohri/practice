@@ -15,8 +15,8 @@
 	- Reading Material - https://codility.com/media/train/3-PrefixSums.pdf
 	- [ ] CountDiv - https://codility.com/demo/take-sample-test/count_div/
 	- [ ] PassingCars - https://codility.com/demo/take-sample-test/passing_cars/
-	- [ ] MinAvgTwoSlice - (respectable) - https://codility.com/demo/take-sample-test/min_avg_two_slice/
-	- [ ] GenomicRangeQuery - (respectable) - https://codility.com/demo/take-sample-test/genomic_range_query/
+	- [x] MinAvgTwoSlice - (respectable) - https://codility.com/demo/take-sample-test/min_avg_two_slice/
+	- [x] GenomicRangeQuery - (respectable) - https://codility.com/demo/take-sample-test/genomic_range_query/
 - Lesson 4 - Sorting - https://codility.com/programmers/lessons/4
 	- Reading Material - https://codility.com/media/train/4-Sorting.pdf
 	- [ ] MaxProductOfThree - https://codility.com/demo/take-sample-test/max_product_of_three/
@@ -81,3 +81,21 @@
 	- [ ] OddOccurrencesInArray - https://codility.com/demo/take-sample-test/odd_occurrences_in_array/
 	- [ ] ArrayInversionCount - (respectable) - https://codility.com/demo/take-sample-test/array_inversion_count/
 	- [ ] PolygonConcavityIndex - (ambitious) - https://codility.com/demo/take-sample-test/polygon_concavity_index/
+- Others
+	- [ ] Equi - https://codility.com/demo/take-sample-test/equi/
+	- [x] PrefixSet - https://codility.com/demo/take-sample-test/ps/
+	- [ ] ????? ndi - https://codility.com/demo/take-sample-test/ndi/
+	- [ ] ????? PtrListLen - https://codility.com/public-report-detail/
+	- [ ] ????? BugfixingLeader - https://codility.com/public-report-detail/
+
+Solutions
+	- https://codility.com/media/train/solution-prefix-set.pdf
+	- https://codility.com/media/train/solution-clocks.pdf
+	- https://codility.com/media/train/solution-flags.pdf
+	- https://codility.com/media/train/solution-cutting_the_cake.pdf
+	- https://codility.com/media/train/solution-flooded-island.pdf
+	- https://codility.com/media/train/solution-ascending-paths.pdf
+	- https://codility.com/media/train/solution-grocery-store.pdf
+	- https://codility.com/media/train/solution-max-distance-monotonic.pdf
+	- https://codility.com/media/train/solution-min-abs-sum.pdf
+	- https://codility.com/media/train/solution-count-bounded-slices.pdf
