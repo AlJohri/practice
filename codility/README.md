@@ -10,7 +10,7 @@
 	- [x] FrogRiverOne - https://codility.com/demo/take-sample-test/frog_river_one/
 	- [ ] PermCheck - https://codility.com/demo/take-sample-test/perm_check/
 	- [ ] MissingInteger - https://codility.com/demo/take-sample-test/missing_integer/
-	- [ ] MaxCounters - https://codility.com/demo/take-sample-test/max_counters/
+	- [x] MaxCounters - https://codility.com/demo/take-sample-test/max_counters/
 - Lesson 3 - Prefix Sums - https://codility.com/programmers/lessons/3
 	- Reading Material - https://codility.com/media/train/3-PrefixSums.pdf
 	- [ ] CountDiv - https://codility.com/demo/take-sample-test/count_div/
