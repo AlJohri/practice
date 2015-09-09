@@ -88,7 +88,7 @@
 	- [ ] ????? PtrListLen - https://codility.com/public-report-detail/
 	- [ ] ????? BugfixingLeader - https://codility.com/public-report-detail/
 
-Solutions
+Official Solutions
 - https://codility.com/media/train/solution-prefix-set.pdf
 - https://codility.com/media/train/solution-clocks.pdf
 - https://codility.com/media/train/solution-flags.pdf
@@ -99,3 +99,5 @@ Solutions
 - https://codility.com/media/train/solution-max-distance-monotonic.pdf
 - https://codility.com/media/train/solution-min-abs-sum.pdf
 - https://codility.com/media/train/solution-count-bounded-slices.pdf
+
+Unofficial Solutions: http://codesays.com/solutions-to-training-by-codility/
