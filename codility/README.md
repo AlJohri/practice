@@ -89,13 +89,13 @@
 	- [ ] ????? BugfixingLeader - https://codility.com/public-report-detail/
 
 Solutions
-	- https://codility.com/media/train/solution-prefix-set.pdf
-	- https://codility.com/media/train/solution-clocks.pdf
-	- https://codility.com/media/train/solution-flags.pdf
-	- https://codility.com/media/train/solution-cutting_the_cake.pdf
-	- https://codility.com/media/train/solution-flooded-island.pdf
-	- https://codility.com/media/train/solution-ascending-paths.pdf
-	- https://codility.com/media/train/solution-grocery-store.pdf
-	- https://codility.com/media/train/solution-max-distance-monotonic.pdf
-	- https://codility.com/media/train/solution-min-abs-sum.pdf
-	- https://codility.com/media/train/solution-count-bounded-slices.pdf
+- https://codility.com/media/train/solution-prefix-set.pdf
+- https://codility.com/media/train/solution-clocks.pdf
+- https://codility.com/media/train/solution-flags.pdf
+- https://codility.com/media/train/solution-cutting_the_cake.pdf
+- https://codility.com/media/train/solution-flooded-island.pdf
+- https://codility.com/media/train/solution-ascending-paths.pdf
+- https://codility.com/media/train/solution-grocery-store.pdf
+- https://codility.com/media/train/solution-max-distance-monotonic.pdf
+- https://codility.com/media/train/solution-min-abs-sum.pdf
+- https://codility.com/media/train/solution-count-bounded-slices.pdf
