@@ -22,7 +22,7 @@
 	- [ ] MaxProductOfThree - https://codility.com/demo/take-sample-test/max_product_of_three/
 	- [ ] Distinct - https://codility.com/demo/take-sample-test/distinct/
 	- [ ] Triangle - https://codility.com/demo/take-sample-test/triangle/
-	- [ ] NumberOfDiscIntersections - (respectable) - https://codility.com/demo/take-sample-test/number_of_disc_intersections/
+	- [x] NumberOfDiscIntersections - (respectable) - https://codility.com/demo/take-sample-test/number_of_disc_intersections/
 - Lesson 5 - Stacks and Queues - https://codility.com/programmers/lessons/5
 	- Reading Material - https://codility.com/media/train/5-Stacks.pdf
 	- [ ] Nesting - https://codility.com/demo/take-sample-test/nesting/
@@ -89,6 +89,7 @@
 	- [ ] ????? BugfixingLeader - https://codility.com/public-report-detail/
 
 Official Solutions
+
 - https://codility.com/media/train/solution-prefix-set.pdf
 - https://codility.com/media/train/solution-clocks.pdf
 - https://codility.com/media/train/solution-flags.pdf
