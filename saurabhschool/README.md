@@ -1,6 +1,6 @@
-<p align="center">
+<span align="center">
 	<img src="http://i.imgur.com/evdBc4A.png" alt="Saurabh School">
-</p>
+</span>
 
 # Saurabh School
 
