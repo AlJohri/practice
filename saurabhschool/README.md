@@ -1,10 +1,8 @@
-<div align="center">
-	<img src="http://i.imgur.com/evdBc4A.png" alt="Saurabh School">
-</div>
-
 # Saurabh School
 
 https://www.youtube.com/playlist?list=PLD629C50E1A85BF84
+
+![](http://i.imgur.com/63BXP3a.png)
 
 |Index | Video|
 |------|------------------------------------------------------------------------------------------------------|
