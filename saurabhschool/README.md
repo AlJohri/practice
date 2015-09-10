@@ -1,4 +1,10 @@
-# saurabhschool
+<p align="center">
+	<img src="http://i.imgur.com/evdBc4A.png" alt="Saurabh School">
+</p>
+
+# Saurabh School
+
+https://www.youtube.com/playlist?list=PLD629C50E1A85BF84
 
 |Index | Video|
 |------|------------------------------------------------------------------------------------------------------|
@@ -142,9 +148,6 @@
 |00138 | Finding Closest Pair of Points in Plane (Divide and Conquer) Part 2|
 |00139 | Handle Questions involving Modulo _ Get Code Accepted in Code chef_ Modulo properties|
 |00140 | Finding all combinations of well-formed brackets_ Valid Permutation of Parenthesis|
-
-### Link to Original Playlist
-https://www.youtube.com/playlist?list=PLD629C50E1A85BF84
 
 ### Download All Videos
 ```
