@@ -1,7 +1,7 @@
 # saurabhschool
 
 |Index | Video|
-|-------------------------------------------------------------------------------------------------------------|
+|------|------------------------------------------------------------------------------------------------------|
 |00001 | Introduction to Linked List (Part 1) Data Structure|
 |00002 | Data Structure - Linked List Basics (Part 2)|
 |00003 | Linked List - Count Number of Nodes|
