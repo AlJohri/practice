@@ -1,5 +1,3 @@
-![](http://i.imgur.com/Fu6pfJd.png)
-
 # Cracking the Coding Interview, 5th Edition
 
 Each file represents the problems from a single chapter.
