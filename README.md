@@ -26,6 +26,10 @@ The included `run` command makes it easier to run C++ and Java files as if you'r
 
 This resource is very incomplete at this time.
 
+### [LeetCode](https://github.com/AlJohri/practice/tree/master/leetcode)
+
+This resource is very incomplete at this time.
+
 ## Crowd Sourced / Random Resources
 
 - [GeeksQuiz](https://github.com/AlJohri/practice/tree/master/geeksquiz)
