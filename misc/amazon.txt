@@ -1,0 +1,68 @@
+127 pages
+http://www.careercup.com/page?pid=amazon-interview-questions&n=1
+
+https://github.com/kilimchoi/technical_interview_questions/blob/master/QUESTIONS.md
+
+http://www.glassdoor.com/GD/Interview/Amazon-com-Interview-Questions-E6036_P5.htm?filter.jobTitleFTS=software
+
+14 amazon leadership principals?
+
+design an alarm clock
+
+Design an app similar to whatsApp
+
+Talk about most complex project you have dealt with.
+
+know what a time complexity is
+how to determine it for any and all code you write
+Know the time complexities of all sorts
+Know all data structures, how to use them, and properties of each. (Insertion time, deletion, etc)
+Generally know what heck you're talking about. But don't talk too much. You don't want silence at any point really, but you certainly don't want to let the interviewer not get a word in.
+Know graph theory, tree theory, and all the fun stuff associated with more "complex" structures.
+Understand what your language does behind the scenes, as far as GC and compiling go.
+Know how your language use internal structures to manage the code/objects you write.
+
+Write code to solve a maze
+Given a maze, find all paths from entry to exit.
+Given a maze, find the way from top-left corner to bottom-right corner
+
+most challenging and interesting question involved an algorithm over a grid of data. The problem itself was challenging, and had a lot of area to explore optimization and good programming practices
+
+design the auto-complete function in the search bar
+
+design a dictionary using data structures
+
+Given 2 strings, how can you determine that one string is only made of characters found in the second string
+
+Given a parking lot of fixed size, made up of a number of rows of spaces, and different vehicle sizes (e.g. car = 1 spot, bike = 1/2 spot, van = 2 spots, bus = 4 spots), develop an algorithm to determine the optimal place to park for any entering vehicle. 
+
+How to check whether a binary tree is identical to another binary tree? Please also provide the time complexity of your algorithm.
+
+Deep copy linked list. Pair anagrams together. Find most occurring integer from infinite stream of integers. Bit wise parity check.
+
+Array intersection
+
+Determine if two number are neighbors in grey code sequence.
+
+Rearrange a string such that duplicate characters are at least k positions away.  
+
+Few language specific questions on Java -- what are private/public/package, who can access variable and methods given one of these?
+
+What is a hashtable, how would you implement one?
+
+Binary trees/AVL trees, what can you tell me about them
+
+Given two texts, x and y, where x < y, check if all the characters of x are in y
+
+Given a string, find the longest repeating substring
+
+Given a list of integers as input (ex. {1, 4, 5, 2, 6, 7, 1, 4, 2}), return the biggest sequence of ascending numbers (ex {2, 6, 7})
+Given an array of integers. Find the largest increasing sub sequence of integers in the array.
+
+The first one is that given a string, delete all 'a,e,i,o,u', and return the new string.
+the second one is that given two string, check if one is the other's rotation. "cdefab" is the rotation of “abcdef" the logic test is hard to describe, but I suggest you to convert all a-z to 1-26 as a list and have that list at hands when you are doing the test
+
+
+What is HashTable? How does it work in the backend perspective? What to do if the collision happened? Whats the time complexity of inserting? deleting? seaching? What's the time complexity for the worse case? 
+What is binary search tree? Whats the time complexity of inserting? deleting? seaching? What's the time complexity for the worse case? 
+Whats the advantage of using BST rather than hashmap? 

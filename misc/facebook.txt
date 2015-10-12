@@ -1,0 +1,12 @@
+So many people message me that I might as well save myself time, this was my Facebook full time on site interview experience in short:
+1. Given an array of ints, each following the rule n +- 1 so (4,3,2,3,4,5,6,7,8,7,6,5,4,3,2) find the local max/min and print them all out
+2. Given 2 pairs of points, each representing a line on a line segment tell me if the pairs intersect infinitely or not
+3. Given a string of a number (example '10101' or '9123') and a map of integers to chars (1 => a,… 26 => z) print out how many combination there are. (ie: 111 => aaa OR ak OR ka = 3 return combinations)
+those were the questions asked the third question I have heard multiple people being asked
+you will have three interviews one hour each in a row, no breaks
+all will be technical and one will be half social
+Thats it then you will get food and chill out with the other interviewees, the campus is great!
+you will get a tour
+you will be interviewing with others, I interviewed with 50 other people
+do not be intimidated by any of them, socialize with them and get to know them
+Good luck!! Feel free to message me more in depth, I love to help out and just talk to many people.
