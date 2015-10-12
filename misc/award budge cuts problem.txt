@@ -1,0 +1,115 @@
+# The "Award Budget Cuts" Problem
+# 
+# The awards committee had planned to give n research grants this year, out of a its total yearly # budget.
+# However, the budget was reduced to b dollars. The committee members has decided to affect the # minimal number of highest grants, by applying a maximum cap c on all grants: every grant that was # planned to be higher than c will now be c dollars.
+# Help the committee to choose the right value of c that would make the total sum of grants equal # to the new budget.
+# 
+# Given an array of grants g and a new budget b, explain and code an efficient method to find the # cap c.
+# Analyze the time and space complexity of your solution.
+# 
+
+# reduced grants = sad phds
+
+b = 70k
+g = [10k, 20k, 30k, 40k]
+b = [10, 20, 20, 20] # c 20
+average = 25k 
+70 - 10 -20 = 40k left in the budget, 30k spent so far  
+40 left in the budget for the 30k and 40k grants
+therefore 40/2 = 20k. c = 20k 
+10 20 25 25
+
+# c = ? # max grant
+
+g = sorted(g)
+
+if sum(g) < b:
+   return g[-1] # 40k
+
+diff = sum(g) - b
+
+
+maximizing the cap
+minimizing the diff
+
+f(diff) = (x + y + z + a) - b = sum(g) - b
+min(x,c) + min(y,c) + min(z,c) + min(a,c) <= b
+
+g = (c+x(-10) + c+y(0) + c+z(10) + c+a(20)) c = 20
+
+# --------------------------------------- #
+
+new_g = g[:]
+
+amount_removed = 0
+while sum(new_g) > b:
+   c = g[-1] - amount_removed
+   new_g = [min(c,x) for x in new_g]
+   amount_removed += 1
+return new_g
+   
+g = [10k, 20k, 30k, 40k] # 25k
+
+b = 70
+
+g = [10, 19, 19, 19]
+
+c is the average? so 170 => 42.5k
+
+#++++++++++++++++++#
+
+if num is less than the average of the budget, we add average (budget) - lesser grant to the grant pool. 
+
+if num is larger, then the 100k/length(array) - index will be the new #
+
+so eg: [20, 40, 50, 60]
+total = 170k 
+average = 25k
+current grant pool = 100k
+
+so iterating through the array
+
+20: current grant pool = 80k, then 80k / 3 (since avg is 25k) is 26.7 so this is c
+
+#########
+
+Assuming g isn't empty and b is indeed smaller than the sum of all grants, we need to find the cap c.
+To compute effectively, we sort the array first. Let r be the index of the lowest grant to be capped, hence: g[r-1] ≤ c ≤ g[r]. The capped sum is: capped(cap) = sum(g[0], g[1], ..., g[r-1]) + (n - r)∙cap, for such r.
+Clearly capped(c) = b, and by our definition of r: capped(g[r-1]) ≤ b ≤ capped(g[r]). Once we find r, we can calculate c easily from the capped sum equation.
+
+Linear scan for r is possible but not optimal. A better approach to find r is by a something similar to binary search. This can work because the array is sorted. We can apply the inequality capped(g[r-1]) ≤ b ≤ capped(g[r]) as our stopping condition for the search. For each middle index on the search we compute capped(g[m]) and capped(g[m-1]) and direct the search accordingly.
+
+#########
+
+function findGrantsCap(g, b):
+   if (g == null OR length(g) == 0):
+      return 0
+   n = length(g)
+   partialSums = []
+   tempSum = 0
+   for (i from 0 to n-1):
+      tempSum = tempSum + g[i]
+      partialSums[i] = tempSum
+   if (partialSums[n-1] &lt;= b):
+      return 0
+
+   function cappedSum(i):
+      return partialSums[i-1] + g[i]*(n-i)
+
+   start = 0
+   end   = n-1
+   while (end > start):
+      r = floor((end-start)/2)
+      if (r > 0):
+         if (cappedSum(r) > b):
+            if (cappedSum(r-1) &lt; b):
+               break
+            else:
+               end = r - 1
+         else:
+         start = r + 1
+
+   c = (b - partialSums[r-1]) / (n-r)
+   return c
+
+   

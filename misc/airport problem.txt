@@ -1,0 +1,46 @@
+# def say_hello():
+#    print 'Hello, World'
+
+# for i in xrange(5):
+#     say_hello()
+
+# gone through airports
+# have baording passes, time information is lost
+# (src, dest) tuples
+
+# never go through the same airport twice
+
+# input (boarding passes):        
+# SFO -> LAX
+# BCN -> ATL
+# LAX -> HKG
+# ATL -> SFO
+# 
+# output (reconstructed itinerary):
+# BCN -> ATL -> SFO -> LAX -> HKG
+
+l = [ ( 'sfo', 'lax'), ( 'bcn', 'atl'), ( 'lax', 'hkg'), ('atl', 'sfo')]
+
+sources = [src for src,dest in l]
+destinations = [dest for src,dest in l]
+
+start_src = list(set(sources) - set(destinations))[0]
+
+airports = {}
+for src,dest in l:
+    airports[src] = (src, dest)
+
+airport_order = []
+current_airport = airports[start_src]
+
+while True:
+    airport_order.append(current_airport)
+    current_dest = current_airport[1]
+    if current_dest in airports:
+        current_airport = airports[current_dest]
+    else:
+        break
+
+print airport_order
+
+
