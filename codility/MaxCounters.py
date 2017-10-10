@@ -131,3 +131,4 @@ print(slow_solution2(N, A))
 print(slow_solution3(N, A))
 print(fast_solution(N, A))
 
+assert fast_solution(5, [3, 4, 4, 6, 1, 4, 4]) ==  [3, 2, 2, 4, 2]

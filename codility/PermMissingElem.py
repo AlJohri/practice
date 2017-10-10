@@ -35,3 +35,17 @@ def solution(A):
     N = len(A)
     sum_upto_n_plus_1 = (N+1) * (N+2) // 2
     return sum_upto_n_plus_1 - sum(A)
+
+# https://codility.com/demo/results/trainingVZAVSN-D9Q/
+
+def solution(A):
+    A.sort()
+    for i, x in enumerate(A):
+        if x != i+1:
+            return i+1
+    else:
+        return len(A) + 1
+
+assert solution([1]) == 2
+assert solution([2, 1]) == 3
+assert solution([2, 3, 1, 5]) == 4

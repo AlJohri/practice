@@ -73,3 +73,18 @@ A = [3, 1, 2, 4, 3]
 
 print(slow_solution(A))
 print(fast_solution(A))
+
+# https://codility.com/demo/results/trainingWSNFJ7-G3B/
+
+def solution(A):
+    N = len(A)
+    left, right = A[0], sum(A[1:])
+    minimum_difference = abs(right-left)
+    for i in range(1, N-1):
+        left += A[i]
+        right -= A[i]
+        difference = abs(right-left)
+        minimum_difference = min(difference, minimum_difference)
+    return minimum_difference
+
+assert solution([3, 1, 2, 4, 3]) == 1

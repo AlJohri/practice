@@ -36,3 +36,16 @@ from math import ceil
 
 def solution(X, Y, D):
     return int(ceil((Y-X) / D))
+
+# https://codility.com/demo/results/training2862MC-XN7/
+
+def solution(X, Y, D):
+    distance = Y - X
+    quotient = distance // D
+    remainder = distance % D
+    if remainder == 0:
+        return quotient
+    else:
+        return quotient + 1
+
+assert solution(10, 85, 30) == 3

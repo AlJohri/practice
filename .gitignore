@@ -4,3 +4,4 @@ a.out.dSYM
 *.dot
 *.jpg
 venv
+private
