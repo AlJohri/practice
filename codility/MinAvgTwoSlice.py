@@ -75,4 +75,3 @@ def solution(A):
     return minimum_position
 
 print(solution(A))
-
