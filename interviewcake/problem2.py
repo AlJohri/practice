@@ -38,8 +38,8 @@ def optimal_get_products_of_all_ints_except_at_index(lst):
 
 	return ret
 
-print brute_force_get_products_of_all_ints_except_at_index([1, 7, 3, 4])
-print optimal_get_products_of_all_ints_except_at_index([1, 7, 3, 4])
+print(brute_force_get_products_of_all_ints_except_at_index([1, 7, 3, 4]))
+print(optimal_get_products_of_all_ints_except_at_index([1, 7, 3, 4]))
 
-print brute_force_get_products_of_all_ints_except_at_index([1, 7, 3, 0])
-print optimal_get_products_of_all_ints_except_at_index([1, 7, 3, 0])
+print(brute_force_get_products_of_all_ints_except_at_index([1, 7, 3, 0]))
+print(optimal_get_products_of_all_ints_except_at_index([1, 7, 3, 0]))

@@ -47,8 +47,8 @@ def findLargestSmallerKey2(root, x):
 			root = root.right
 	return result
 
-print "findLargestSmallerKey: ", findLargestSmallerKey(root, 19)
-print "findLargestSmallerKey2: ", findLargestSmallerKey2(root, 19)
+print("findLargestSmallerKey: ", findLargestSmallerKey(root, 19))
+print("findLargestSmallerKey2: ", findLargestSmallerKey2(root, 19))
 
 """
 Solution:

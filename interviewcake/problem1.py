@@ -74,14 +74,14 @@ def optimal_find_max_price_difference(stock_prices_yesterday):
     return max_price_difference
 
 stock_prices_yesterday = [100, 200, 300, 400, 500, 600, 700]
-print brute_force_find_max_price_difference(stock_prices_yesterday)
-print optimal_find_max_price_difference(stock_prices_yesterday)
+print(brute_force_find_max_price_difference(stock_prices_yesterday))
+print(optimal_find_max_price_difference(stock_prices_yesterday))
 
 stock_prices_yesterday = [200, 200, 200, 500, 700,  10, 600]
-print brute_force_find_max_price_difference(stock_prices_yesterday)
-print optimal_find_max_price_difference(stock_prices_yesterday)
+print(brute_force_find_max_price_difference(stock_prices_yesterday))
+print(optimal_find_max_price_difference(stock_prices_yesterday))
 
 stock_prices_yesterday = [700, 600, 500, 400, 300, 200, 100]
-print brute_force_find_max_price_difference(stock_prices_yesterday)
-print optimal_find_max_price_difference(stock_prices_yesterday)
+print(brute_force_find_max_price_difference(stock_prices_yesterday))
+print(optimal_find_max_price_difference(stock_prices_yesterday))
 

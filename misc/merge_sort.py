@@ -16,8 +16,8 @@ def merge(lsta, lstb):
 	current_a_index = 0
 	current_b_index = 0
 
-	print "lsta: ", lsta
-	print "lstb: ", lstb
+	print("lsta: ", lsta)
+	print("lstb: ", lstb)
 
 	while len(new_lst) != (len(lsta) + len(lstb)):
 		if len(lsta) == current_a_index:
@@ -33,15 +33,15 @@ def merge(lsta, lstb):
 			new_lst.append(lstb[current_b_index])
 			current_b_index += 1
 
-	print "new list: ", new_lst
+	print("new list: ", new_lst)
 	return new_lst
 
 ques = [4,3,8,6,7,1,2,9,5]
 sol = [1,2,3,4,5,6,7,8,9]
 mysol = msort(ques)
 
-print ""
-print "ques: ", ques
-print "sol: ", sol
-print "mysol: ", mysol
-print "correct: ", sol == mysol
+print("")
+print("ques: ", ques)
+print("sol: ", sol)
+print("mysol: ", mysol)
+print("correct: ", sol == mysol)

@@ -8,14 +8,14 @@ def checkSteps(n):
 	else:
 		return checkSteps(n-3) + checkSteps(n-2) + checkSteps(n-1)
 
-print "checkSteps"
-print "0", checkSteps(0)
-print "1", checkSteps(1)
-print "2", checkSteps(2)
-print "3", checkSteps(3)
-print "4", checkSteps(4)
-print "5", checkSteps(5)
-print ""
+print("checkSteps")
+print("0", checkSteps(0))
+print("1", checkSteps(1))
+print("2", checkSteps(2))
+print("3", checkSteps(3))
+print("4", checkSteps(4))
+print("5", checkSteps(5))
+print("")
 
 # 9.2 Imagine a robot sitting on the upper left corner of an X by Y grid. The robot can
 # only move in two directions: right and down. How many possible paths are there
@@ -39,17 +39,17 @@ def possiblePaths2(finalX, finalY, curPos=[0,0]):
 	else:
 		return possiblePaths2(finalX, finalY, [curPos[0]+1, curPos[1]]) + possiblePaths2(finalX, finalY, [curPos[0], curPos[1]+1])
 
-print "possiblePaths"
-print "0,0", possiblePaths(0,0)
-print "3,3", possiblePaths(3,3)
-print "4,2", possiblePaths(4,2)
-print ""
+print("possiblePaths")
+print("0,0", possiblePaths(0,0))
+print("3,3", possiblePaths(3,3))
+print("4,2", possiblePaths(4,2))
+print("")
 
-print "possiblePaths2"
-print "0,0", possiblePaths2(0,0)
-print "3,3", possiblePaths2(3,3)
-print "4,2", possiblePaths2(4,2)
-print ""
+print("possiblePaths2")
+print("0,0", possiblePaths2(0,0))
+print("3,3", possiblePaths2(3,3))
+print("4,2", possiblePaths2(4,2))
+print("")
 
 # 9.3 A magic index in an array A[0...n-1] is defined to be an index such that A[i]
 # = i. Given a sorted array of distinct integers, write a method to find a magic
@@ -99,18 +99,18 @@ def findMagicIndex3(A, indicies=None):
 	return right
 
 
-print "findMagicIndex"
-print "[-40,-20,-1,1,2,3,5,7,9,12,13]", findMagicIndex([-40,-20,-1,1,2,3,5,7,9,12,13])
-print ""
+print("findMagicIndex")
+print("[-40,-20,-1,1,2,3,5,7,9,12,13]", findMagicIndex([-40,-20,-1,1,2,3,5,7,9,12,13]))
+print("")
 
-print "findMagicIndex2"
-print "[-40,-20,-1,1,2,3,5,7,9,12,13]", findMagicIndex2([-40,-20,-1,1,2,3,5,7,9,12,13])
-print ""
+print("findMagicIndex2")
+print("[-40,-20,-1,1,2,3,5,7,9,12,13]", findMagicIndex2([-40,-20,-1,1,2,3,5,7,9,12,13]))
+print("")
 
-print "findMagicIndex3 (with duplicates)"
-print "[-40,-20,-1,1,2,3,5,7,9,12,13]", findMagicIndex3([-40,-20,-1,1,2,3,5,7,9,12,13])
-print "[-10,-5,2,2,2,3,4,7,9,12,13]", findMagicIndex3([-10,-5,2,2,2,3,4,7,9,12,13])
-print ""
+print("findMagicIndex3 (with duplicates)")
+print("[-40,-20,-1,1,2,3,5,7,9,12,13]", findMagicIndex3([-40,-20,-1,1,2,3,5,7,9,12,13]))
+print("[-10,-5,2,2,2,3,4,7,9,12,13]", findMagicIndex3([-10,-5,2,2,2,3,4,7,9,12,13]))
+print("")
 
 # 9.4 Write a method to return all subsets of a set.
 
@@ -119,8 +119,8 @@ from itertools import combinations
 def powerset(A):
 	return reduce(lambda x,y: x+y, [list(combinations(A, i)) for i in range(len(A)+1)], [])
 
-print "powerset([1,2,3,4])", powerset([1,2,3,4])
-print ""
+print("powerset([1,2,3,4])", powerset([1,2,3,4]))
+print("")
 
 # 9.5 Write a method to compute all permutations of a string
 
@@ -129,8 +129,8 @@ from itertools import permutations
 def getPerms(str):
 	return ["".join(x) for x in list(permutations(str, len(str)))]
 
-print "getPerms(hello)", getPerms("hello")
-print ""
+print("getPerms(hello)", getPerms("hello"))
+print("")
 
 # 9.6 Implement an algorithm to print all valid (i.e., properly opened and closed) combinations
 # of n-pairs of parentheses.
@@ -158,13 +158,13 @@ def numWaysToMakeChange(amount, coins=[1, 5, 10, 25]):
             ways[j] += ways[j - coin]
     return ways[amount]
 
-print "numWaysToMakeChange(5): ", numWaysToMakeChange(5)
-print "numWaysToMakeChange(6, [5,10,25]): ", numWaysToMakeChange(6, [5,10,25])
-print "numWaysToMakeChange(20): ", numWaysToMakeChange(20)
-print "numWaysToMakeChange(25): ", numWaysToMakeChange(25)
-print "numWaysToMakeChange(100): ", numWaysToMakeChange(100)
-print "numWaysToMakeChange(100, [1,5,10,25,50]): ", numWaysToMakeChange(100, [1,5,10,25,50])
-print ""
+print("numWaysToMakeChange(5): ", numWaysToMakeChange(5))
+print("numWaysToMakeChange(6, [5,10,25]): ", numWaysToMakeChange(6, [5,10,25]))
+print("numWaysToMakeChange(20): ", numWaysToMakeChange(20))
+print("numWaysToMakeChange(25): ", numWaysToMakeChange(25))
+print("numWaysToMakeChange(100): ", numWaysToMakeChange(100))
+print("numWaysToMakeChange(100, [1,5,10,25,50]): ", numWaysToMakeChange(100, [1,5,10,25,50]))
+print("")
 
 
 

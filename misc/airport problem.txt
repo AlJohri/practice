@@ -41,6 +41,6 @@ while True:
     else:
         break
 
-print airport_order
+print(airport_order)
 
 

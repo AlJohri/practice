@@ -52,9 +52,9 @@ def calcFuelBasic(zroute):
 def calcFuelSimple(zRoute):
    return max(zRoute) - zRoute[0]
 
-print zroute
-print calcFuelBasic(zroute)
-print calcFuelSimple(zroute)
+print(zroute)
+print(calcFuelBasic(zroute))
+print(calcFuelSimple(zroute))
 
 """
 Solution:

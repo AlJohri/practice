@@ -7,5 +7,5 @@ def isort(A):
 	return A
 
 A = [53,12,34,21,58,15]
-print A
-print isort(A)
+print(A)
+print(isort(A))

@@ -61,9 +61,9 @@ def calcProductArray2(arr):
    return productArray
 
 arr = [1, 2, 3, 4, 5]
-print "Input: ", arr
-print "Brute-Force Solution: ", calcProductArray(arr)
-print "Efficient Solution: ", calcProductArray2(arr)
+print("Input: ", arr)
+print("Brute-Force Solution: ", calcProductArray(arr))
+print("Efficient Solution: ", calcProductArray2(arr))
 
 """
 Solution:
