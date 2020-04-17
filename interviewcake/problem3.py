@@ -4,6 +4,12 @@
 # from three of the integers.
 # The input array_of_ints will always have at least three integers.
 
+# Gotchas
+# Does your function work with negative numbers?
+# If list_of_ints is [-10, -10, 1, 3, 2] we should return 300 (which we get by taking -10 * -10 * 3).
+
+# We can do this in O(n) time and O(1) space.
+
 test_cases = [
 	[4, 3, 1, 5, 7, 2, 0],
 	[4, 3, 1, -5, 7, 2, 0],
