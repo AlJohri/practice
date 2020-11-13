@@ -36,4 +36,4 @@ This resource is very incomplete at this time.
 - [GeeksForGeeks](https://github.com/AlJohri/practice/tree/master/geeksforgeeks)
 - [CareerCup](https://github.com/AlJohri/practice/tree/master/careercup)
 - [Design of Computer Programs - Programming Principles CS12](https://github.com/AlJohri/practice/tree/master/design-of-computer-programs--cs212)
-- Glassdoor
+- Glassdoor 
